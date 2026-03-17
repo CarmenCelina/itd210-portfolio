@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperTours Charter Bus</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>SuperTours Charter Bus</h1>
+        <!--mobile toggle try 1-->
+        <button class="mobile-toggle" id="mobileToggle"> 
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+    <nav class="desktop_n">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="media.html">Media</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+      <nav class="mobile_n" id="mobileNav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="media.html">Media</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <main>
+
+  <!--Hero Image-->
+  <section class="hero">         <!--This class contain the whole image-->
+   <img src="images/charter1.png" alt="Charter Bus" class="hero-img"> 
+  <div class="hero-text"> <!-- This control the text overlay of the image-->
+      <h2>Reliable! Luxury! Travel!</h2>
+  </div>
+  </section>
+
+
+
+               
+<section class="card-container">
+
+  <!--This is a card section-->
+
+  <!-- Card 1 -->
+  <div class="card"> <!-- This div is for the whole card-->
+    <div class="card-content"> <!--This div is for the text inside-->
+      <h3>About Us</h3>
+      <p>We provide safe and comfortable charter bus services.</p>
+      <button onclick="location.href='about.html'">Learn More</button> <!--  This button navigates to the About page when clicked -->
+    </div>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="card">
+    <div class="card-content">
+      <h3>Services</h3>
+      <p>Luxury buses, mini buses, and coaches available for hire.</p>
+      <button onclick="location.href='contact.html'">Learn More</button>
+    </div>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="card">
+    <div class="card-content">
+      <h3>Reviews</h3>
+      <p>Learn about our recent trips! Check out our reviews!</p>
+      <button onclick="location.href='gallery.html'">Click Here</button>
+    </div>
+  </div>
+
+</section>
+
+
+    </main>
+    <footer>
+        &copy;2026 Carmen Cruz
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>
