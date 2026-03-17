@@ -112,7 +112,7 @@ html, body {  background-color: var(--background-color)
  
   display: none; /* still hidden on mobile */
   text-decoration: none; 
-  display: flex;                /* enable flex layout */
+  /* display: flex;                 enable flex layout */
   justify-content: flex-start; /* aligns links to the left */
   gap: 15px;                    /* space between links */
   padding: 10px 0 20px 0;  /* top 10px, bottom 20px */
