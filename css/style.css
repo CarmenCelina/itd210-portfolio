@@ -12,6 +12,10 @@
   --small-space: 8px;
   --medium-space: 16px;
   --large-space: 32px;
+
+   /* BORDER RADIUS - adds slight rounded corners to elements */
+  --border-radius: 20px;
+
 }
 /* IMAGE RESPONSIVE */
 img {
@@ -112,8 +116,8 @@ html, body {  background-color: var(--background-color)
  
   display: none; /* still hidden on mobile */
   text-decoration: none; 
-  /* display: flex;                 enable flex layout */
-  justify-content: flex-start; /* aligns links to the left */
+  display: flex;                /* enable flex layout */
+  justify-content: flex-end; /* aligns links to the left */
   gap: 15px;                    /* space between links */
   padding: 10px 0 20px 0;  /* top 10px, bottom 20px */
 
@@ -124,6 +128,7 @@ border: 2px ridge var(--accent-color);
   text-decoration: none; /* removes underline */
     background-color: #FFF3E7;
     padding: 5px;
+    text-align: right;
 
 }
 

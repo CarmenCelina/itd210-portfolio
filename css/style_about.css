@@ -33,7 +33,7 @@ one can find it one place! It makes it easier to update styles. */
   --shadow-lg: 7px 5px 4px rgba(103, 103, 103, 0.282);
 
    /* BORDER RADIUS - adds slight rounded corners to elements */
-  --border-radius: 1px;
+  --border-radius: 20px;
 
 }
 /* IMAGE RESPONSIVE 

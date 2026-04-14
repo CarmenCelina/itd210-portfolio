@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <!-- loads the Tailwind CSS framework from the internet -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      /* I added tailwind custom colors from index.html/css file */
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              /* cream ivory main background color */
+              cream: '#FFF3E7',
+              /* burnt sienna accent color for buttons and highlights */
+              sienna: '#E08955',
+              /* blue gray used for background sections */
+              bluegray: '#689AB8',
+            }
+          }
+        }
+      }
+    </script>
+</head>
+
+<!-- bg-cream sets the whole page background to (ivory cream) -->
+<!-- text-black makes all default text black -->
+<body class="bg-cream text-black">
+<!--px-6 adds 24px padding on left and right px(x-axis)-->
+<!-- py-4 adds 16px padding on top and bottom (y-axis)-->
+ <!--The rest say the header will be flex and justify btw will push item to the ends with item center-->
+<header class="bg-cream px-6 py-4 flex justify-between items-center">
+    <!--text-2xl= 24px font on mobile-->
+        <!--md &lg is 36 tablet 60px desktop & w-full means take the full width-->
+    <h1 class="text-2xl md:text-4xl lg:text-6xl font-bold text-center w-full">Contact Us</h1>
+</header>
+
+<!-- Desktop Nav -->
+ <!--This is style for the nav bg is cream background & flexbox& justify end make the nav go to right of page-->
+<nav class="bg-cream flex justify-end gap-6 px-6 py-3 border-b border-gray-200">
+    <!--the nav link to each site with hover-->
+    <a href="index.html" class="hover:text-sienna transition duration-300">Home</a>
+    <a href="about.html" class="hover:text-sienna transition duration-300">About</a>
+    <a href="gallery.html" class="hover:text-sienna transition duration-300">Gallery</a>
+    <a href="media.html" class="hover:text-sienna transition duration-300">Media</a>
+    <a href="contact.html" class="hover:text-sienna  transition duration-300">Contact</a>
+</nav>
+
+<main>
+
+<!-- HERO SECTION -->
+<!-- bg-bluegray sets the blue gray background, text-white keeps text readable -->
+<section class="bg-bluegray text-white text-center py-20 px-4">
+    <img src="images/101edit.png" alt="drawing of a bus"
+    class="w-full h-22  rounded-lg mx-auto mb-6 object-cover">
+
+    <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Get In Touch</h2>
+    <p class="text-lg md:text-xl text-black">Please contact us here or send us a message and we promise to respond within 24 hours!</p>
+</section>
+
+<!-- CONTACT CARDS -->
+<!-- grid changes from 1 column on mobile to 2 on tablet to 3 on desktop -->
+<section class="py-16 px-4 max-w-5xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-8 text-black">How To Reach Me</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Email Card -->
+        <!-- hover:shadow-lg adds a bigger shadow when hovered -->
+        <div class="bg-white rounded-xl shadow p-6 text-center hover:shadow-lg hover:scale-105 transition duration-300">
+             <img src="images/email_icon.jpg" alt="email icon">
+            <h3 class="text-xl font-bold mb-1">Email</h3>
+            <p class="text-gray-500 text-sm">superTours@gmail.com</p>
+        </div>
+
+         <!-- WhatApps Card -->
+          <!--rounded-xl round the corners-->
+          <!--hover:scale-105 means when user hovers over the card hover about 300mili seconds-->
+        <div class="bg-white rounded-xl shadow p-6 text-center hover:shadow-lg hover:scale-105 transition duration-300">
+         <img src="images/newicon.jpg" alt="whatapp.com icon"> 
+            <h3 class="text-xl font-bold mb-1">WhatApp</h3>
+            <p class="text-gray-500 text-sm">+1342-555-1124</p>
+        </div>
+
+        <!-- Phone Card -->
+        <div class="bg-white rounded-xl shadow p-6 text-center hover:shadow-lg hover:scale-105 transition duration-300">
+        <img src="images/phoneIcon.jpg" alt="phone icon">
+            <h3 class="text-xl font-bold mb-1">Phone</h3>
+            <p class="text-gray-500 text-sm">(123) 456-7890</p>
+        </div>
+
+       
+    </div>
+</section>
+
+<!-- CONTACT FORM -->
+<!-- max-w-2xl centers and limits the form width -->
+ <!--max-w-2xl is 672px max width & mx-auto=margin auto-->
+<section class="pb-16 px-4 max-w-2xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-8 text-black">Send a Message</h2>
+    <!-- flex flex-col stacks form fields vertically -->
+    <div class="bg-white rounded-xl shadow p-8 flex flex-col gap-4">
+
+        <!-- flex-col on mobile, flex-row on desktop for name and email -->
+        <div class="flex flex-col md:flex-row gap-4">
+            <input type="text" placeholder="Your Name"
+                class="border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:border-sienna transition duration-300">
+            <input type="email" placeholder="Your Email"
+                class="border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:border-sienna transition duration-300">
+        </div>
+
+        <input type="text" placeholder="Subject"
+            class="border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:border-sienna transition duration-300">
+
+        <!-- textarea for typing questions -->
+        <textarea placeholder="Type your question here..." rows="5"
+            class="border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:border-sienna transition duration-300"></textarea>
+
+        <!-- hover:bg-sienna darkens button on hover -->
+        <button class="bg-sienna text-white font-bold py-3 rounded-lg hover:opacity-80 transition duration-300">
+            Send Message
+        </button>
+
+    </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<!-- bg-bluegray mean the whole box is blue & in the p section the box is sienna///
+ /// py-6 means: (6x4= 24) y-axis padding -->
+<footer class="bg-bluegray text-white text-center py-6">
+    <p class="text-sm text-black bg-sienna">&copy;2026 Carmen Cruz</p>
+</footer>
+
+</body>
+</html>
