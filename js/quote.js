@@ -5,7 +5,11 @@ async function loadData() {
   //Get paragraph element & made const because I don't need to change it 
   const quoteDisplay = document.getElementById("quote"); //(((SELECT)))
   // Show a loading message in the quote box.
-  quoteDisplay.innerHTML = "<li>Loading quote...</li>";//change
+  // quoteDisplay.innerHTML = "<li>Loading quote...</li>";//change
+  // Loading state:
+  const li = document.createElement("li");
+  li.textContent = 'Loading quote...';
+  quoteDisplay.appendChild(li);
 
   try { //keyword "try" means try to run API if it does not work 
     // then try to catch the error and display error message
@@ -37,8 +41,17 @@ async function loadData() {
     const newQuote1 = data.quotes[quoteInd %numquote].quote;
     const newQuote2 = data.quotes[(quoteInd+1) %numquote].quote;
     const newQuote3 = data.quotes[(quoteInd+2) %numquote].quote;
-    //Display the list
-    quoteDisplay.innerHTML = `<li>${newQuote1}</li>\n<li>${newQuote2}</li>\n<li>${newQuote3}</li>`;
+    //update quotes
+
+    quoteDisplay.innerHTML = ""; // clear — safe, no data
+
+    [newQuote1, newQuote2, newQuote3].forEach(q => {
+      const li = document.createElement("li");
+      li.textContent = q;
+      quoteDisplay.appendChild(li);
+    });
+
+  
 
   } catch (error) {
     // Step 4
