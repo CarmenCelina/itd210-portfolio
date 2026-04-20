@@ -35,14 +35,19 @@
     <main>
 
   <!--Hero Image-->
-  <section class="hero">  <!--This class contain the whole image-->
-   <img src="images/charterChange.png" alt="Charter Bus" class="hero-img"> 
-  <div class="hero-text"> <!-- This control the text overlay of the image-->
-      <h2>Reliable! Luxury! Travel!</h2>
+ <section class="hero">
+  <video autoplay muted loop playsinline id="heroVideo">
+    <source src="video/herovideo (1).mp4" type="video/mp4">
+  </video>
+
+  <!-- Pause Button -->
+  <button class="pause-btn" onclick="toggleVideo()">⏸ Pause</button>
+
+  <!-- Your hero content goes here -->
+  <div class="hero-content">
+    <h1>Welcome!</h1>
   </div>
-  </section>
-
-
+</section>
 
                
 <section class="card-container">

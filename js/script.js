@@ -8,3 +8,15 @@ mobileToggle.addEventListener("click", function () {
   mobileNav.classList.toggle("open");
 });
 
+/* JS for videos */
+ function toggleVideo() {
+    const video = document.getElementById('heroVideo');
+    const btn = document.querySelector('.pause-btn');
+    if (video.paused) {
+      video.play();
+      btn.textContent = '⏸ Pause';
+    } else {
+      video.pause();
+      btn.textContent = '▶ Play';
+    }
+  }
