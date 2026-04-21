@@ -3,45 +3,42 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* padding/border included in element width */
 }
-  /* GRID FOR gallery*/
+  /* GRID FOR gallery- 12 column grid */
 .big_grid{
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(12, 1fr); /* 12 equal columns */
     grid-auto-rows:30vw; /* control the height of row*/
     width: 100%;
-    gap:20px;
+    gap:20px; /* space between grid items */
 
 }
+
+/* These are the grid item wrappers — need relative + overflow
+   so the zoom effect doesn't spill outside the card */
 .grid_12, .grid_8, .grid_6, .grid_4 {
     position: relative;
     overflow: hidden;
 }
-
+/* All images fill their grid cell completely */
 .big_grid img{
     width: 100%;
     height: 100%;
     object-fit: cover;
-
-     /* b/w grayscale */
-    filter: grayscale(100%);
-
-    /* Smooth transition for hover effects */
-    transition: transform 0.7s ease, filter 0.4s ease;
+    filter: grayscale(100%);/* b/w grayscale */
+    transition: transform 0.7s ease, filter 0.4s ease; /* Smooth transition for hover effects */
 }
 
-/*hover the whole card*/
+/*hover the whole card & restore color and zoom in slightly*/
 .big_grid figure:hover img,
 .big_grid figure:focus-within img {
-    /* Restore color */
-    filter: grayscale(0%);
-    /* Slight zoom */
-    transform: scale(1.07);
+    filter: grayscale(0%);    /* Restore color */
+    transform: scale(1.07);   /* Slight zoom */
 }
 /* -hover (mouse) and focus-within (keyboard)
    -both needed so everyone sees the overlay not just mouse users
-   -((overlay is text that appear on top of image when hover & focus withing is for someone who presses tab to naviagate)) */
+   -((overlay is text that appear on top of image when hover & focus-within is for someone who presses tab to naviagate)) */
 .grid_12:hover .overlay,
 .grid_8:hover .overlay,
 .grid_6:hover .overlay,
@@ -53,7 +50,7 @@
   opacity: 1;
 }
 
-/* visible caption/ text custom  */
+/* small caption that sit in image */
 figcaption {
     padding: 6px 12px; /* 6px top/bottom, 12px left/right */
     font-size: 12px;
@@ -62,23 +59,16 @@ figcaption {
     letter-spacing: 1px;
 }
 
+/* How many columns each card spans on desktop */
+.grid_12 {grid-column: span 12;}/* full width on mobile */
+.grid_8{ grid-column: span 8;}
+.grid_4{ grid-column: span 4;}
+.grid_6{grid-column: span 6;}
 
-.grid_12 {grid-column: span 12; /* full width on mobile */
-}
-.grid_8{
-    grid-column: span 8;
-}
-.grid_4{
-    grid-column: span 4;  
-}
-.grid_6{
-    grid-column: span 6;
-}
-/*MOBILE:on small screen it stacks*/
+/*MOBILE:on small screen it stacks into a single column*/
 @media (max-width: 768px) {
     .big_grid{
-        grid-auto-rows: 68vw;
-
+        grid-auto-rows: 68vw;/* taller rows since cards are now full width */
     }
 
    /* override stack */
@@ -89,7 +79,7 @@ figcaption {
         
     }
 }
-/* reduce motion for user that need it*/
+/* ACCESSIBILITY:reduce motion for user that need it*/
 @media (prefers-reduced-motion: reduce) {
     .big_grid img,
     .overlay,
@@ -101,7 +91,7 @@ figcaption {
    it starts invisible (opacity 0) and fades in when the user hovers */
 /* Overlay text hidden by default */
 .overlay {
-  position: absolute;
+  position: absolute;/* sticks to the bottom of the card */
   bottom: 0;
   left: 0;
   right: 0;
@@ -113,11 +103,3 @@ figcaption {
   font-weight: bold;
 }
 
-
-.desktop_n a {
-    border-radius: 15px;
-    border: 2px solid #E08955;
-    text-shadow: none;
-    padding: 5px 10px;
-    font-size: 0.85rem;
-}

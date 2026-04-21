@@ -182,15 +182,22 @@ Again, Mobile First Styling so we create 1 column for each grid. */
 }
  /* Wide Card: This is for the card that take up the full width */
   .small_card_wide {
-  grid-column: 1/-1; /*This say start at column at line 1 and end -1 (goes to the last line of column line) */
-  padding:var(--medium-space);
-  background-color: var(--main-color);
   margin:var(--medium-space);
-  box-shadow: var(--shadow-lg);
   border:var(--border);
   box-shadow: var(--shadow-md);
-  border-radius: var(--border-radius);
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 75%;
+  text-align: center;
+  background: rgba(113, 113, 113, 0.5);  /* dark overlay so text is readable */
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
 }
+
+
 
 
 /* This is three cards that will sit inside the big card
@@ -290,15 +297,3 @@ card grid from 1 column to 2 column*/
   display: block;
 }
 
-.small_card_wide {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 75%;
-  text-align: center;
-  background: rgba(113, 113, 113, 0.5);  /* dark overlay so text is readable */
-  color: white;
-  padding: 20px;
-  border-radius: 10px;
-}
