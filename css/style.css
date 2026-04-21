@@ -110,7 +110,7 @@ html, body {  background-color: var(--background-color)
   color:var(--main-color)
   
 }
-
+ /*
  /* NAV design */
 .desktop_n {
  
@@ -120,11 +120,12 @@ html, body {  background-color: var(--background-color)
   justify-content: flex-end; /* aligns links to the left */
   gap: 15px;                    /* space between links */
   padding: 10px 0 20px 0;  /* top 10px, bottom 20px */
+  border-radius: 15px;
 
 }
 
 .desktop_n a{ color: #000000;
-border: 2px ridge var(--accent-color);
+border: 2px solid var(--accent-color);
   text-decoration: none; /* removes underline */
     background-color: #FFF3E7;
     padding: 5px;
@@ -263,3 +264,5 @@ box-shadow: 2px 3px 0 lightblue ;}
   .pause-btn:hover {
     background-color: rgba(0, 0, 0, 0.85);
   }
+
+  

@@ -1,70 +1,123 @@
 
+/* Remove default from browser space */
 * {
-  box-sizing: border-box; /* Global reset: makes padding and border included in element's width */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
- 
-img {
-  max-width: 100%;
-  height: auto;
-  display: block; /*makes element take full width of container and stack  */
-}
-.masonry-grid {
-    display: grid; /*Made the cards a grid box & its the overall layout */
-    grid-template-columns: repeat(3, 1fr); /*This means 1fr 3 times */
-    gap: 1.5rem;
-    margin:5%;
-}
-
-.masonry-card {
-    border-radius: 8px;
-    padding: 15px;
-    display: flex; /* Controls the layout (inside) each card */
-    flex-direction: column; /* Stacks content top to bottom */
-    border: 4px double white;
-    text-align: center;
-    box-shadow: 0px 10px 10px 0px rgba(12,78,233,0.3);
-    background: linear-gradient(135deg, #d0ace2, #bcddfb);
-    transition: all 0.4s ease; /* animate transition builder (lab 1) */
-
+  /* GRID FOR gallery*/
+.big_grid{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows:30vw; /* control the height of row*/
+    width: 100%;
+    gap:20px;
 
 }
-.masonry-card:hover{
-  transform: rotate(15deg); /* Rotates the card on hover */
+.grid_12, .grid_8, .grid_6, .grid_4 {
+    position: relative;
+    overflow: hidden;
 }
 
-.masonry-card:nth-child(1),
-.masonry-card:nth-child(4) {
-    grid-row: span 2;  /* Makes the 1st and 4th cards span 2 rows (this makes those cards larger) */
-}
-/* This is animation for heading */
-@keyframes textBounceIn {
-  0% { opacity: 0; transform: scale(0.3); } /* starts at 0% & opacity is zero visbility
-  the text is scale(0.3) 30 % of its size */
-  50% { transform: scale(1.1); } /* it goes from small to big to small to normal size*/
-  70% { transform: scale(0.9); }
-  100% { opacity: 1; transform: scale(1); }
+.big_grid img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+     /* b/w grayscale */
+    filter: grayscale(100%);
+
+    /* Smooth transition for hover effects */
+    transition: transform 0.7s ease, filter 0.4s ease;
 }
 
-.animated-text {
-  text-align: center;
-  font-size: 2rem;
-  font-weight: 800;
-  color: #2997ff;
-  animation: textBounceIn 1.1s ease-in-out 1 forwards; /*Bounce in affect that last for 1.1sec
-   ease-in-out(starts slow, speeds up, then slows down) for 1 time and stays */
+/*hover the whole card*/
+.big_grid figure:hover img,
+.big_grid figure:focus-within img {
+    /* Restore color */
+    filter: grayscale(0%);
+    /* Slight zoom */
+    transform: scale(1.07);
+}
+/* -hover (mouse) and focus-within (keyboard)
+   -both needed so everyone sees the overlay not just mouse users
+   -((overlay is text that appear on top of image when hover & focus withing is for someone who presses tab to naviagate)) */
+.grid_12:hover .overlay,
+.grid_8:hover .overlay,
+.grid_6:hover .overlay,
+.grid_4:hover .overlay,
+.grid_12:focus-within .overlay,
+.grid_8:focus-within .overlay,
+.grid_6:focus-within .overlay,
+.grid_4:focus-within .overlay {
+  opacity: 1;
 }
 
-/* link in footer it changes color when hover over*/
-a:link {
-  color: #2997ff;
-  text-decoration: none; /* removes underline */
+/* visible caption/ text custom  */
+figcaption {
+    padding: 6px 12px; /* 6px top/bottom, 12px left/right */
+    font-size: 12px;
+    color: #ccc;
+    background: rgba(0,0,0,0.5);
+    letter-spacing: 1px;
 }
 
-a:hover {
-  color: rgb(236, 44, 226);
-  text-decoration: none;
+
+.grid_12 {grid-column: span 12; /* full width on mobile */
+}
+.grid_8{
+    grid-column: span 8;
+}
+.grid_4{
+    grid-column: span 4;  
+}
+.grid_6{
+    grid-column: span 6;
+}
+/*MOBILE:on small screen it stacks*/
+@media (max-width: 768px) {
+    .big_grid{
+        grid-auto-rows: 68vw;
+
+    }
+
+   /* override stack */
+    .grid_8,
+    .grid_6,
+    .grid_4 {
+      grid-column: span 12;
+        
+    }
+}
+/* reduce motion for user that need it*/
+@media (prefers-reduced-motion: reduce) {
+    .big_grid img,
+    .overlay,
+    figcaption {
+    transition: none;
+    }
+}
+/* overlay is the text that appears on top of the image when you hover over it
+   it starts invisible (opacity 0) and fades in when the user hovers */
+/* Overlay text hidden by default */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 0.8rem;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  font-weight: bold;
 }
 
-footer{
-  text-align: center;
+
+.desktop_n a {
+    border-radius: 15px;
+    border: 2px solid #E08955;
+    text-shadow: none;
+    padding: 5px 10px;
+    font-size: 0.85rem;
 }

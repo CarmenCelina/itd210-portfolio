@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reviews</title>
-    <link rel="stylesheet" href="css/gallery.css">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="css/review.css">
     <link rel="stylesheet" href="css/style.css">
-
-
-</head>
-<body>
+    <link rel="stylesheet" href="css/gallery.css">
+    </head>
+    <body>
      <header>
         <h1>SuperTours Charter Bus</h1>
         <!--mobile toggle try 1-->
@@ -18,13 +17,14 @@
             <span></span>
             <span></span>
         </button>
-    </header>
+   
     
     <nav class="desktop_n">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="gallery.html">Gallery</a>
         <a href="media.html">Media</a>
+        <a href="review.html">Reviews</a>
         <a href="contact.html">Contact</a>
     </nav>
      
@@ -33,43 +33,100 @@
         <a href="about.html">About</a>
         <a href="gallery.html">Gallery</a>
         <a href="media.html">Media</a>
+        <a href="review.html">Reviews</a>
         <a href="contact.html">Contact</a>
     </nav>
-   
-    <h1 class="animated-text">Our Reviews</h1>
-    <div class="masonry-grid">
-    <div class="masonry-card">
-        <h3>Albert-South Carolina</h3> <!--large card-->
-        <img src="images/grandpa.jpg"alt="older man holding granddaughter's hand towards the beach">
-        <p>I enjoyed our family vacation to Myrtle Beach. We got there safe and sound. The driver was very friendly and the bus was very clean. I would 100% recommend this service for anyone looking for reliable transportation.
-        </p>
-    </div>
+    </header>
+    <main>
+ 
+   <h1>Where to travel next?</h1>
+   <!--This is a grid with 9 pictures and that span based on the 12 grid-->
+    <section class="big_grid" aria-label="Photo Gallery"> <!-- start of grid box and aria label to help accessibility-->
+        <!-- tabindex="0" lets keyboard users tab to this image card
+     required so hover effects also work on keyboard focus -->
+    <figure class="grid_6" tabindex="0"> <!--figure is used for images with captions-->
+        <img src="images/miami_beach.jpg" alt="picture of beach in miami that shows eagle view of city & beach" loading="lazy"/> <!-- loading lazy means dont load image until user scrolls to it, makes page faster -->
+        <div class="overlay" aria-hidden="true">Miami Beach</div>
+        <figcaption> Miami Beach</figcaption>
+    </figure>
+   <!-- Image 2: Family (Events) -->
+            <figure class="grid_6" tabindex="0">
+                <img src="images/familypic.jpg"
+                     alt="Family packing their bags and getting ready to go on vacation"
+                     loading="lazy"/>
+                <div class="overlay" aria-hidden="true">Family Travel</div>
+                <figcaption>Family Groups</figcaption>
+            </figure>
+ 
+            <!-- Image 3: New York(Destinations) -->
+            <figure class="grid_8" tabindex="0">
+                <img src="images/newYork.jpg"
+                     alt="New York City skyscrapers photographed during the daytime"
+                     loading="lazy"/>
+                <div class="overlay" aria-hidden="true">New York City</div>
+                <figcaption> New York City</figcaption>
+            </figure>
+ 
+            <!-- Image 4: Wedding ( Events) -->
+            <figure class="grid_4" tabindex="0">
+                <img src="images/weddingpic.jpg"
+                     alt="Married couple waving from a charter bus surrounded by guests"
+                     loading="lazy"/>
+                <div class="overlay" aria-hidden="true">Wedding Transport</div>
+                <figcaption> Weddings</figcaption>
+            </figure>
+ 
+            <!-- Image 5: Myrtle Beach Destinations -->
+            <figure class="grid_8" tabindex="0">
+                <img src="images/myrtleBeach.jpg"
+                     alt="Aerial view of Myrtle Beach showing the ferris wheel and rides"
+                     loading="lazy"/>
+                <div class="overlay" aria-hidden="true">Myrtle Beach</div>
+                <figcaption>Myrtle Beach</figcaption>
+            </figure>
+ 
+            <!-- Image 6: WiFi  Amenities -->
+            <figure class="grid_4" tabindex="0">
+                <img src="images/wifi.jpg"
+                     alt="iPhone screen displaying the WiFi connection symbol"
+                     loading="lazy"/>
+                <div class="overlay" aria-hidden="true">Free WiFi Onboard</div>
+                <figcaption>Free WiFi</figcaption>
+            </figure>
+ 
+            <!-- Image 7: Bus Interior -->
+            <figure class="grid_6" tabindex="0">
+                <img src="images/bus_inside1.png"
+                     alt="Inside of charter bus showing navy seats with white accents"
+                     loading="lazy"/>
+                <div class="overlay" aria-hidden="true">Premium Interior</div>
+                <figcaption>Bus Interior</figcaption>
+            </figure>
+ 
+            <!-- Image 8: Virginia Beach — Destinations -->
+            <figure class="grid_6" tabindex="0">
+                <img src="images/vaBeach.jpg"
+                     alt="Seafood shack on the Virginia Beach boardwalk"
+                     loading="lazy"/>
+                <div class="overlay" aria-hidden="true">Virginia Beach</div>
+                <figcaption> Virginia Beach</figcaption>
+            </figure>
+ 
+            <!-- Image 9: Bus Exterior — (full width) I wanted to added to emphasis the ride -->
+            <figure class="grid_12" tabindex="0">
+                <img src="images/editHero.png"
+                     alt="Exterior of the SuperTours charter bus with orange color scheme"
+                     loading="lazy"/>
+                <div class="overlay" aria-hidden="true">Our Charter Bus</div>
+                <figcaption> Bus Exterior</figcaption>
+            </figure>
+ 
+        </section>
     
-    <div class="masonry-card">
-        <h3>Mark - New York</h3>
-                <img src="images/stars.png"alt="picture of five 5 yellow stars">
-        <p> I am a photographer, and I enjoyed my trip to the East Coast! One of my favorite parts of taking this bus was the reliable internet access. I would 100% recommend using this service.</p>
-    </div>
-    <div class="masonry-card">
-        <h3>Amy- Virgina</h3>
-                <img src="images/stars.png"alt="picture of five 5 yellow stars">
-        <p>We enjoyed our trip to old town and had a great experience with this bus charter service. We arrived at our destination on time and even ahead of schedule. The service was excellent!</p>
-    </div>
-    <div class="masonry-card"> <!--large card-->
-        <h3>Women Tech Trip - D.C.</h3>
-        <img src="images/two_women.jpg" alt="picture of two girls in a city look at a pamplet">
-       <p>This trip was organized by our team leader. It was a work trip and we used this charter bus service to bring our mentors safely to D.C. It's very important that we arrive at work events on time so that we could set up the tables. The driver went above and beyond by helping us pick up extra tables and by boarding quickly. I would rate this service 5 out of 5!</p>
-    </div>
-    <div class="masonry-card">
-        <h3>LA Soccer Team - Richmond</h3>
-                <img src="images/stars.png"alt="picture of five 5 yellow stars">
-        <p>We had a large group that needed a charter bus to Richmond. It was a hectic schedule since we had about 40 kids for the game. The bus driver was very organized and professional. I would hire this company again. Excellent service!</p>
-    </div>
-</div>
+    </main>
     
-<footer>
-  <p>Find us on social media: <a href="https://www.instagram.com">Instagram</a> | &copy; 2026 Carmen Cruz</p>
-</footer>
+    
+<footer> &copy; 2026 Carmen Cruz </footer>
             <script src="js/script.js"></script>
 
 </body>
