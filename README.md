@@ -8,7 +8,8 @@ This is my capstone project for my web design class. This website is responsive 
 - HTML5
 - CSS3 (Flexbox, Grid, Responsive Design)
 - JavaScript
-
+- Milestone 3
+- added lazy loading & perfers-reduced-motion 
 
 ## Course
 ITD 210 Web Development — Northern Virginia Community College
