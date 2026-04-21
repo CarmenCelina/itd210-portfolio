@@ -136,10 +136,12 @@ html, body {  background-color: var(--background-color)
 
 .desktop_n a{ color: #000000;
 border: 2px solid var(--accent-color);
-  text-decoration: none; /* removes underline */
-    background-color: #FFF3E7;
-    padding: 5px;
-    text-align: right;
+text-decoration: none; /* removes underline */
+background-color: #FFF3E7;
+padding: 5px 15px;
+text-align: right;
+ border-radius: 12px; /* br */
+
 
 }
 
