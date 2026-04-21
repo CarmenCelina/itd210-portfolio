@@ -33,7 +33,7 @@ one can find it one place! It makes it easier to update styles. */
   --shadow-lg: 7px 5px 4px rgba(103, 103, 103, 0.282);
 
    /* BORDER RADIUS - adds slight rounded corners to elements */
-  --border-radius: 20px;
+  --border-radius: 15px;
 
 }
 /* IMAGE RESPONSIVE 
@@ -68,7 +68,7 @@ sit side by side in a row. We can need to center and create space to
 make the nav nice. */
 nav {
   display: flex; /* turns nav into a flexbox container */
-  justify-content: center; /*center nav horizontally */
+  justify-content: right; /*center nav horizontally */
   gap: var(--small-space); /*adds spave btween each link */
   flex-wrap: wrap; /*wraps links on small screen */
 
@@ -97,9 +97,11 @@ font-size: medium;
 padding: var(--small-space);
 }
 
-h1, h2, h3{ text-align: center;
+ h2, h3{ text-align: center;
 }
-
+header{
+  text-align: left;
+}
 /* HERO SECTION- Mobile style first
 First .hero is big container that holds the hero image and text side by side */
 .hero {
@@ -118,6 +120,8 @@ First .hero is big container that holds the hero image and text side by side */
   object-fit: cover;/* fills container without distorting the image */
   border:var(--border);
   box-shadow: var(--shadow-md);
+    border-radius: var(--border-radius);
+
 
 }
 /* Hero Text box is also full width because we are creating the mobile first
@@ -130,6 +134,8 @@ and on mobile it would take 100% of the screen.
   min-width: 0; /*This is a flexbox fix to prevent overflow */
   border:var(--border);
   box-shadow: var(--shadow-md);
+  border-radius: var(--border-radius);
+
   
   
 }
@@ -171,6 +177,7 @@ Again, Mobile First Styling so we create 1 column for each grid. */
   grid-template-columns: 1fr; /* MOBILE: 1 column, all cards stacked */
   /* gap only works on the parent grid and flexbox NOT CHILD */
   gap: var(--medium-space);
+  border-radius: var(--border-radius);
 
 }
  /* Wide Card: This is for the card that take up the full width */
@@ -182,8 +189,9 @@ Again, Mobile First Styling so we create 1 column for each grid. */
   box-shadow: var(--shadow-lg);
   border:var(--border);
   box-shadow: var(--shadow-md);
-
+  border-radius: var(--border-radius);
 }
+
 
 /* This is three cards that will sit inside the big card
 It will follow the column layout of the parent card */
@@ -193,6 +201,7 @@ It will follow the column layout of the parent card */
   background-color: var(--accent-color);
   text-align: center;
   box-shadow: var(--shadow-lg);
+  border-radius: var(--border-radius);
 }
 
 
@@ -272,3 +281,24 @@ card grid from 1 column to 2 column*/
   color: #f279dc; /* lighter pink on hover */
 }
 
+.wrap_hero {
+  position: relative;
+}
+
+.cta_img {
+  width: 100%;
+  display: block;
+}
+
+.small_card_wide {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 75%;
+  text-align: center;
+  background: rgba(113, 113, 113, 0.5);  /* dark overlay so text is readable */
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
