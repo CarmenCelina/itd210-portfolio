@@ -142,9 +142,10 @@ padding: 5px 15px;
 text-align: right;
  border-radius: 12px; /* br */
 
-
 }
-
+.desktop_n a:hover {
+  color: var(--accent-color); /* or whatever color you want */
+}
 
 /* This mean apply  the style when the screen is bigger than 768px */
 @media (min-width: 768px) {
@@ -203,16 +204,52 @@ box-shadow: 2px 3px 0 lightblue ;}
   background-color: var(--main-color)
 }
 
-/* Individual card */
+/* Individual card ***********************/
 .card {
   box-shadow: 5px 4px 0px black;
-  width: 300px;   /* fixed card width */
+  width: 350px;   /* fixed card width */
   margin-bottom: var(--medium-space);
   text-align: center;
+  
+  height: auto;
+  
 }
 .card-content {
   padding: 15px;
   background-color:var(--accent-color) ;
+  border-radius: 15px;
+  
+}
+
+
+
+
+
+
+
+.card-content button {
+
+  background:skyblue;
+  color: #fff;
+  border-radius: 10px;
+  padding: 14px 32px;
+  box-shadow:
+    0 6px 0 #831843,             /* darker base beneath */
+    0 10px 20px rgba(0,0,0,.3);
+  transform: translateY(0);
+  transition: transform .15s, box-shadow .15s;
+}
+.card-content button:hover {
+  transform: translateY(-3px);   /* lift up */
+  box-shadow:
+    0 9px 0 #831843,
+    0 16px 28px rgba(0,0,0,.35);
+}
+.card-content button:active {
+  transform: translateY(3px);    /* press down */
+  box-shadow:
+    0 2px 0 #831843,
+    0 4px 12px rgba(0,0,0,.2);
 }
 /************* Quote *******************************/
 .quote_box {border: 4px solid black;
