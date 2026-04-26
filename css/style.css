@@ -377,3 +377,93 @@ a:hover {
 footer{
   text-align: center;
 }
+
+/************** MEDIA *************/
+.reel-card{
+  
+  flex:0 0 500px;
+  background:#111118;
+  border-radius:14px;
+  overflow:hidden;
+  
+  border:1px solid rgba(255,255,255,.06);
+  transition:transform .3s;
+}
+
+.reel-card:hover{
+  transform:translateY(-3px);
+}
+
+.reel-card video{
+  width:100%;
+  height:340px;
+  object-fit:cover;
+  background:#000;
+}
+
+.reel-card-body{
+  padding:14px;
+}
+
+.reel-card-title{
+  font-size:.9rem;
+  font-weight:700;
+  color:#fff;
+  margin-bottom:2px;
+}
+
+.reel-card-desc{
+  font-size:.75rem;
+  color:rgba(255,255,255,.4);
+}
+
+.reel-strip{
+  
+  display:flex;
+  gap:16px;
+  overflow-x:auto;
+  
+  padding:8px 0 16px;
+  
+  scrollbar-width:thin;
+  scrollbar-color:rgba(255,255,255,.08) transparent;
+}
+/* button*/
+.btn-icon {
+  background: #10b981;
+  color: #fff;
+  border-radius: 999px;
+  padding: 14px 28px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0;                    /* no gap at rest */
+  transition: gap .3s ease;
+}
+/* Hide the icon with zero width */
+.btn-icon .icn {
+  max-width: 0;
+  overflow: hidden;
+  opacity: 0;
+  white-space: nowrap;
+  transition: max-width .35s ease, opacity .2s ease;
+}
+.btn-icon:hover { gap: 10px; }
+.btn-icon:hover .icn {
+  max-width: 24px;
+  opacity: 1;
+}
+.media_intro{
+  border: 3px solid black;
+  padding: 10px;
+  border-radius: var(--border-radius);
+  margin-bottom:20px;
+  margin-top: 20px;
+  font-size: 20px;
+  background-color: var(--main-color);
+  text-align: center;
+}
+.media_intro p{
+  text-decoration: underline pink;
+  font-size: 1em;
+
+}
