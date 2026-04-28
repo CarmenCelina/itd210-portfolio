@@ -467,3 +467,21 @@ footer{
   font-size: 1em;
 
 }
+/*******  KEYBOARD FOCUS 
+    Only when the user uses TAB an orange outline box will appear & guide the user. This is important for people who cannot use a mouse and rely 
+   on keyboard navigation instead. */
+:focus-visible {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 3px;
+}
+
+/******** REDUCED MOTION 
+   This allows user to turn off the all motions.
+   */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important; /* Turns off animation*/
+    transition: none !important;/* Turns off transition*/
+  }
+}
+
