@@ -13,13 +13,13 @@ This is my capstone project for my web design class. This website is responsive 
 
 ## NEW UPDATE
 Media.html 
-    -Has 4 Videos
-    -Transcript
-    -Mp3 Intro
-    -keyframes textSlideLeft
-About.html
-    -Big quote
-    -Stats-container with JS 
+   - Has 4 Videos
+   - Transcript
+   - Mp3 Intro
+   - keyframes textSlideLeft
+- About.html
+    - Big quote
+    - Stats-container with JS 
 
 
 ## Course
