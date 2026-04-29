@@ -56,8 +56,11 @@
         <p>Hello, my name is Darwin. I have been driving charter buses for over 20 years.
             I have done everything in my career from short distance trips to long service weeks. 
             My favorite thing about my job is being able to connect with people and help others.
-            If I had one motto in life it would be to "always be on time." 
+            If I had one motto in life it would be to "always be on time."
             We respect and value the customer above all else.
+            <blockquote class="big-quote">
+  "Always be on time."
+</blockquote>
                  
          I started this business many years ago because I believe the American dream is possible.
         I was born in Honduras and immigrated to the USA in search of a better life. 
@@ -71,6 +74,51 @@
 </div>
     </div>
 </section>
+<!-- Stats section with counting animation -->
+<div class="stats-container">
+  <div class="stat-box">
+    <span class="stat-number" data-target="20">0</span>
+    <span class="stat-label">Years of Experience</span>
+  </div>
+  <div class="stat-box">
+    <span class="stat-number" data-target="500">0</span>
+    <span class="stat-label">Customers Served</span>
+  </div>
+  <div class="stat-box">
+    <span class="stat-number" data-target="100">0</span>
+    <span class="stat-label">Safety Rate %</span>
+  </div>
+  <div class="stat-box">
+    <span class="stat-number" data-target="98">0</span>
+    <span class="stat-label">On Time Arrival %</span>
+  </div>
+</div>
+
+<script>
+/* This makes the numbers count up from 0 to their target number
+   It grabs every stat-number element and animates it counting up
+   This is more engaging than just showing a static number */
+const counters = document.querySelectorAll('.stat-number');
+
+counters.forEach(counter => {
+  const target = +counter.getAttribute('data-target');
+  const speed = 200; /* lower = faster */
+
+  const update = () => {
+    const current = +counter.innerText;
+    const increment = Math.ceil(target / speed);
+
+    if (current < target) {
+      counter.innerText = current + increment;
+      setTimeout(update, 10); /* runs every 10ms */
+    } else {
+      counter.innerText = target; /* snaps to exact number at end */
+    }
+  };
+
+  update();
+});
+</script>
 
 <!--This section is for a cards! I made this section to emphasize value of the company!
 I also main a card wider than the rest because I wanted to explain why they should hire us. 

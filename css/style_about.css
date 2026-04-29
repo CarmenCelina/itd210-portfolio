@@ -297,3 +297,68 @@ card grid from 1 column to 2 column*/
   display: block;
 }
 
+/* QUOTES FOR ABOUT PAGE */
+/* Big quote — to break the paragraph  */
+.big-quote {
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-align: center;
+  color: var(--accent-color);
+  padding: 20px 40px;
+  margin: 40px auto;
+  max-width: 700px;
+  background-color: var(--main-color);
+  border-radius: 20px;
+  border: none;
+}
+
+/* Adds a big decorative quotation mark above the text */
+.big-quote::before {
+  content: "\201C";
+  font-size: 6rem;
+  color: var(--accent-color);
+  display: block;
+  line-height: 1;
+}
+
+/* Stats row — shows key numbers visually instead of 
+   burying them in a paragraph of text */
+.stats-container {
+  display: flex; /*Flexbox */
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 30px;
+  background-color: var(--main-color);
+}
+
+/* Individual stat circle */
+.stat-box {
+  text-align: center;
+  background-color: var(--accent-color);
+  border-radius: 50%; /* makes it a perfect circle */
+  width: 150px;       /* must be equal width and height for circle */
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 4px 4px 0px black;
+}
+
+/* The big number inside the circle */
+.stat-number {
+  display: block;
+  font-size: 2.5rem; /*1rem=16px*/
+  font-weight: 700; /*Boldness */
+  color: var(--main-color);
+}
+
+/* The label below the number */
+.stat-label {
+  display: block;
+  font-size: 10 rem;
+  color: white;
+  margin-top: 5px;
+  padding: 0 10px;
+}
