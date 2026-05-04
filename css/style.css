@@ -1,7 +1,18 @@
  * {
   box-sizing: border-box; /* Global reset: makes padding and border included in element's width */
 }
- 
+ @font-face {
+  font-family: 'playfair';
+  src: url(./font/PlayfairDisplay-VariableFont_wght.ttf)format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'vast';
+  src: url('../font/VastShadow-Regular.ttf') format('truetype');
+  font-weight: 600;
+  
+}
  
  :root { /* Root is like the key for css color colors to make it easier to update. */
   /* COLORS */
@@ -12,6 +23,8 @@
 
   /* FONTS */
   --main-font: Arial, sans-serif;
+  --font-paragraph: 'playfair',sans-serif serif;
+  --font-unique: 'vast', sans-serif;
 
   /* SPACING */
   --small-space: 8px;
@@ -30,8 +43,37 @@ img {
 }
 html, body {  background-color: var(--background-color)
 }
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: 80px;
+}
 
 
+.logo {
+  background-image: url('/images/logo5.png');
+  background-size: 45px 45px;
+  background-repeat: no-repeat;
+  background-position: left center;
+  width: auto;
+  height: 80px;
+  padding-left: 55px;
+  border-radius: 20px;
+  display: flex;              /* ADD THIS */
+  align-items: center;        /* ADD THIS - centers the h1 vertically */
+}
+.logo h1 {
+  font-family: var(--font-unique);
+   font-size: 20px;  /* smaller on mobile */
+  text-align: left;
+  margin: 0;
+  white-space: nowrap;
+  line-height: 1;             /* ADD THIS */
+
+
+}
 
 /* Show mobile menu (but hidden until button click) */
   .mobile_n {
@@ -121,18 +163,14 @@ html, body {  background-color: var(--background-color)
 }
  /*
  /* NAV design */
-.desktop_n {
- 
-  display: none; /* still hidden on mobile */
-  text-decoration: none; 
-  display: flex;                /* enable flex layout */
-  justify-content: flex-end; /* aligns links to the left */
-  gap: 15px;                    /* space between links */
-  padding: 30px;  /* top 10px, bottom 20px */
-  border-radius: var(--border-radius);
-  font-size:1rem;
-
+ .desktop_n {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 0;
+  font-size: 1rem;
 }
+
 
 .desktop_n a{ color: #000000;
 border: 2px solid var(--accent-color);
@@ -149,6 +187,15 @@ text-align: right;
 
 /* This mean apply  the style when the screen is bigger than 768px */
 @media (min-width: 768px) {
+
+  .logo h1 {
+    font-size: 28px;       /* bigger on desktop */
+  }
+  .logo {
+    background-size: 55px 55px;
+    padding-left: 65px;
+  }
+}
   .desktop_n {
     display: flex;  /* show desktop menu */
     gap: 15px;
@@ -156,7 +203,7 @@ text-align: right;
   .mobile_n, .mobile-toggle {
     display: none; /* hide hamburger button */
   }
-}
+
 
 /* Mobile view */
 @media (max-width: 767px) {
@@ -175,12 +222,7 @@ text-align: right;
 
  }
 
-header {
-  display: flex;             /* Use flexbox */
-  justify-content: space-between;  /* Space between logo/title and hamburger */
-  align-items: center;        /* This vertically centers the items */
-  padding: 0 20px; 
-}
+
  
  p{background-color:var(--main-color);
     text-align: center;}
