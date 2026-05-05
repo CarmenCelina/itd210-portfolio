@@ -1,5 +1,6 @@
  * {
   box-sizing: border-box; /* Global reset: makes padding and border included in element's width */
+  margin: 0; 
 }
  @font-face {
   font-family: 'playfair';
@@ -13,18 +14,25 @@
   font-weight: 600;
   
 }
+@font-face {
+  font-family: 'Commissioner';
+  src: url('../font/Commissioner-VariableFont_FLAR\,VOLM\,slnt\,wght.ttf') format('truetype');
+  font-weight: 400;
+  
+}
  
  :root { /* Root is like the key for css color colors to make it easier to update. */
   /* COLORS */
-  --main-color:#FFF3E7; /* Cream  or Ivory (#E2DED0) */
-  --accent-color: #E08955; /* Burnt Sienna*/
+  --main-color:white; /* Cream  or Ivory (#E2DED0) */
+  --accent-color:#ebc2a6 ;
   --text-color: #000000;
-  --background-color: #689AB8; /* Blue Gray */
+  --background-color: #87D3F8; /* Blue Gray */
 
   /* FONTS */
   --main-font: Arial, sans-serif;
-  --font-paragraph: 'playfair',sans-serif serif;
+  --font-paragraph: 'playfair',sans-serif;
   --font-unique: 'vast', sans-serif;
+  --font-secondary-paragraph:'Commissioner', sans-serif;
 
   /* SPACING */
   --small-space: 8px;
@@ -33,7 +41,14 @@
 
    /* BORDER RADIUS - adds slight rounded corners to elements */
   --border-radius: 20px;
+  --border-radius-smaller:15px;
 
+
+  /* FONT SIZE*/
+  --font-normal: 1rem;      /* 16px */
+  --font-md: 1.25rem;    /* 18px */
+  --font-lg: 1.50rem;     /* 20px */
+  --font-xl: 2rem;      /* 24px */
 }
 /* IMAGE RESPONSIVE */
 img {
@@ -66,7 +81,7 @@ header {
 }
 .logo h1 {
   font-family: var(--font-unique);
-   font-size: 20px;  /* smaller on mobile */
+  font-size: 20px;  /* smaller on mobile */
   text-align: left;
   margin: 0;
   white-space: nowrap;
@@ -95,7 +110,8 @@ header {
   padding: 10px 20px;   /* clickable space */
   text-align: center;    /* center links */
   display: block;        /* each link on its own line */
-    border-radius: var(--border-radius);
+   border-radius: var(--border-radius);
+   color: black;
 
 }
 
@@ -120,7 +136,7 @@ header {
   height: 2px;
   width: 30px;
   background-color: var(--accent-color);
-  border:1px solid red;
+  border:1px solid navy;
 }
 .open{ /*show menu when hamburger is clicked */
   display: flex !important;
@@ -178,7 +194,10 @@ text-decoration: none; /* removes underline */
 background-color: #FFF3E7;
 padding: 5px 15px;
 text-align: right;
- border-radius: 12px; /* br */
+border-radius: 12px; /* br */
+font-family: var(--main-font);
+font-size: 18px;
+
 
 }
 .desktop_n a:hover {
@@ -189,7 +208,8 @@ text-align: right;
 @media (min-width: 768px) {
 
   .logo h1 {
-    font-size: 28px;       /* bigger on desktop */
+    font-size: var(--font-xl);       /* bigger on desktop */
+    
   }
   .logo {
     background-size: 55px 55px;
@@ -203,7 +223,14 @@ text-align: right;
   .mobile_n, .mobile-toggle {
     display: none; /* hide hamburger button */
   }
-
+.mobile_n a {
+  padding: 10px 20px;
+  text-align: center;
+  display: block;
+  border-radius: var(--border-radius);
+  font-size: var(--font-md);
+  font-family: var(--main-font);
+}
 
 /* Mobile view */
 @media (max-width: 767px) {
@@ -212,86 +239,162 @@ text-align: right;
   }
   .mobile-toggle {
     display: flex;        /* show hamburger */
+
   }
+  
+  
+
+  
 }
 
-
- /*headers/footer/p */
- header h1{
-    text-shadow: 2px 3px 0px gray; /* only the title gets the shadow */
-
- }
-
-
+/*FOOTER*/
  
- p{background-color:var(--main-color);
-    text-align: center;}
- footer{ background-color:var(--accent-color) ;
-    text-align: center;
-    margin-top: 50px;
-    width: auto;
+footer {
+  padding: 28px 30px;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid BLACK;
+  font-size: var(--font-normal);
+  font-family:var(--main-font);
+  color: black;
+  background-color: white;
+  width:100vw;
+  margin-top: 60px;
+  overflow: hidden; 
+
+}
+ .links { display: flex; gap: 20px;
+   font-family:var(--main-font);
+
  }
+
+
+/*FONTS & PARAGRAPH & H3 STYLE*/
+ p{
+  text-align: center;
+  font-size:var(--font-md);
+  font-family:var(--font-paragraph);
+ }
+
+
 h3{background-color: antiquewhite;
 padding: 10px;
-box-shadow: 2px 3px 0 lightblue ;}
-  
-
-/* Flexbox container for cards */
-.card-container {
-  display: flex;              /* enable flex layout */
-  flex-wrap: wrap;            /* allow cards to move to next line on small screens */
-  gap: var(--medium-space);   /* space between cards */
-  justify-content: center;    /* center cards horizontally */
-  padding: var(--medium-space);
-  background-color: var(--main-color)
+box-shadow: 4px 4px 7px 1px gray;
+text-align: center;
+font-size:var(--font-lg) ;
+font-family:var(--font-unique);
+font-weight: 400;
+border-radius:var(--border-radius-smaller);
 }
 
-/* Individual card ***********************/
+
+  
+
+/* CARDS FOR INDEX.HTML*/
+/* ── Grid container ── */
+/* ── Grid container ── */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  margin: 4rem 0 0 0;   /* ← adds space above the grid */
+
+  gap: 25px;
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ── Card shell ── */
 .card {
-  box-shadow: 5px 4px 0px black;
-  width: 350px;   /* fixed card width */
-  margin-bottom: var(--medium-space);
-  text-align: center;
-  
-  height: auto;
-  
-}
-.card-content {
-  padding: 15px;
-  background-color:var(--accent-color) ;
-  border-radius: 15px;
-  
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;     /* keeps image corners clipped */
+  border: 1px solid #f0f0f0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
+/* ── Thumbnail ── */
+.thumb {
+  position: relative;
+  /* aspect-ratio: 16 / 8; */   /* ← remove this */
+  overflow: hidden;
+  height: 300px;
+  width: 100%;
+}
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display:block;
+  transition: transform .6s;
+}
+.card:hover .thumb img { transform: scale(1.06); }
+
+/* ── Ribbon ── */
+.ribbon {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.ribbon.new  { background: linear-gradient(135deg, #ec4899, #f43f5e); color: #fff; }
+.ribbon.sale { background: linear-gradient(135deg, #10b981, #22c55e); color: #fff; }
+.ribbon.hot  { background: linear-gradient(135deg, #f97316, #f43f5e); color: #fff; }
+
+/* ── Card body ── */
+.body {
+  padding: 16px 18px 18px;
+}
+.body h3 {
+  
+  font-family: var(--font-unique);  /* ← now uses your vast font */
+  font-size: var(--font-md);        /* ← now uses your size */
+  font-weight: 400;
+  line-height: 1.55;
+  margin: 0 0 8px;
+  color: #111;
+}
+.body p {
+  font-size: var(--font-md);
+  color: #666;
+  line-height: 1.5;
+  margin: 0 0 14px;
+}
 
 
+  
 
+ /*BUTTON */
+.card .body button {
+  display: block;
+    margin: 0 auto;    /* centers it — was margin-left: auto */
 
-
-
-.card-content button {
-
-  background:skyblue;
-  color: #fff;
+  background: rgb(175, 216, 238);
+  color: black;
+  border: none;
   border-radius: 10px;
   padding: 14px 32px;
-  box-shadow:
-    0 6px 0 #831843,             /* darker base beneath */
-    0 10px 20px rgba(0,0,0,.3);
-  transform: translateY(0);
+  cursor: pointer;
+  box-shadow: 6px 3px 2px 3px var(--accent-color), 2px 1px 4px rgba(0,0,0,.3);
   transition: transform .15s, box-shadow .15s;
+  font-family: var(--font-unique);
+  font-size: var(--font-normal);
 }
-.card-content button:hover {
-  transform: translateY(-3px);   /* lift up */
-  box-shadow:
-    0 9px 0 #831843,
-    0 16px 28px rgba(0,0,0,.35);
+
+.card .body button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 9px 0 #6495ED , 0 16px 28px rgba(0,0,0,.35);
 }
-.card-content button:active {
-  transform: translateY(3px);    /* press down */
-  box-shadow:
-    0 2px 0 #831843,
-    0 4px 12px rgba(0,0,0,.2);
+
+.card .body button:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #831843, 0 4px 12px rgba(0,0,0,.2);
 }
 /************* Quote *******************************/
 .quote_box {border: 4px solid black;
@@ -405,7 +508,7 @@ box-shadow: 2px 3px 0 lightblue ;}
    ease-in-out(starts slow, speeds up, then slows down) for 1 time and stays */
 }
 
-/* link in footer it changes color when hover over*/
+/* link in foor it changes color when hover over*/
 a:link {
   color: #2997ff;
   text-decoration: none; /* removes underline */
@@ -416,9 +519,7 @@ a:hover {
   text-decoration: none;
 }
 
-footer{
-  text-align: center;
-}
+
 
 /************** MEDIA *************/
 .reel-card{

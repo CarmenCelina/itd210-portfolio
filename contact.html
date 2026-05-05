@@ -15,14 +15,33 @@
               /* cream ivory main background color */
               cream: '#FFF3E7',
               /* burnt sienna accent color for buttons and highlights */
-              sienna: '#E08955',
+              sienna: '#ebc2a6',
               /* blue gray used for background sections */
-              bluegray: '#689AB8',
+              bluegray: '#87D3F8',
             }
           }
         }
       }
     </script>
+    <style>
+       /*FOOTER*/
+ 
+footer {
+  padding: 28px 30px;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid BLACK;
+  font-size: 14px;
+  color: black;
+  background-color: white;
+  width:100vw;
+  margin-top: 60px;
+ overflow: hidden; 
+
+}
+ .links { display: flex; gap: 20px;
+ } 
+    </style>
 </head>
 
 <!-- bg-cream sets the whole page background to (ivory cream) -->
@@ -130,11 +149,14 @@
 </main>
 
 <!-- FOOTER -->
-<!-- bg-bluegray mean the whole box is blue & in the p section the box is sienna///
- /// py-6 means: (6x4= 24) y-axis padding -->
-<footer class="bg-bluegray text-white text-center py-6">
-    <p class="text-sm text-black bg-sienna">&copy;2026 Carmen Cruz</p>
-</footer>
 
+ <footer>
+  <div>© 2026 Carmen Cruz</div>
+  <div class="links">
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+    <a href="#">Contact</a>
+  </div>
+</footer>
 </body>
 </html>
