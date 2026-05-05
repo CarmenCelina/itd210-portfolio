@@ -4,75 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SuperTours About Page</title>
-    <link rel="stylesheet" href="css/style_about.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/about.js" defer></script>
+
 </head>
 <body>
-    <header> <!--This is the header and the nav -->
-      <h1>SuperTours Charter Bus </h1>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="media.html">Media</a>
-        <a href="review.html">Reviews</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-       </header>
-    
+   <header>
+  <div class="logo">
+    <h1>SuperTours Charter Bus</h1>
+  </div>
+
+  <nav class="desktop_n">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="media.html">Media</a>
+    <a href="review.html">Reviews</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle mobile menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</header>
+
+<!-- mobile nav stays OUTSIDE header -->
+<nav class="mobile_n" id="mobileNav">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="media.html">Media</a>
+  <a href="review.html">Reviews</a>
+  <a href="contact.html">Contact</a>
+</nav>
     <main>
-      <div class="wrap_hero">
-        <h2>About Us</h2>
-    <img class="cta_img"  src="images/editHero.png" alt="picture of the bus exterior">
-         <div class="small_card_wide"> <!-- This will take over the whole row-->
-      <h3>Why Hire Us?</h3>
-    <p>
-  We are a local charter bus company in the DMV area. We provide quick quotes
-  and can work with any schedule. SuperTours guarantees safe transportation and
-  is always on time. In addition, we hire local experienced bus drivers when
-  demand is high. All our buses have luxury seating and have recently
-  been updated. SuperTours charter buses feature cushioned seating, TVs, free headphones,
-  bathrooms, and ADA accommodations. We have over 20 years in this business
-  and believe charter buses are a great way for group events. Many companies
-  have hired us for work trips, as well as large families looking to go on vacation.
-  We guarantee that the ride will be pleasant, comfortable,
-  luxurious, and affordable! <br><br>
-   <a href="gallery.html" class="hero_btn">Book Now!</a>
-  <a href="media.html" class="hero_btn">Contact Us!</a>
-</p>
-  </div>
-  </div>
+              <h1>About Us</h1>
+   <div class="why-hire-card">
 
-  
-      <!-- THIS IS HERO SECTION-->
-       <!--I made this a flexbox! I want the user to read the bio of the driver. 
-       The story I am telling is suppose to make the potential customer relate to the owner.
-       I think my goal was to create earnest and honest feel to my about introduction. -->
-<section class="hero"> <!-- I add this to create a parent container -->
-    <img src="images/whiteBackgroundBusDriver.png" alt="picture of the bus driver smiling">
-      
+              <h2>Why Hire Us?</h2>
 
-    <div class="hero_text"> <!-- This container has content/ the child for flexbox -->
-        <h2>Welcome</h2>
-        <p>Hello, my name is Darwin. I have been driving charter buses for over 20 years.
-            I have done everything in my career from short distance trips to long service weeks. 
-            My favorite thing about my job is being able to connect with people and help others.
-            If I had one motto in life it would be to "always be on time."
-            We respect and value the customer above all else.
-            <blockquote class="big-quote">
-  "Always be on time."
-</blockquote>
-                 
-         I started this business many years ago because I believe the American dream is possible.
-        I was born in Honduras and immigrated to the USA in search of a better life. 
-        I work hard every day for my children and their future. When you support SuperTours Charter Bus Services,
-        you support not only a small business but a father. Thank you!
-        </p>
-        <div>
+    <img class="cta_img"  src="images/editHero.png" 
+    alt="picture of the bus exterior">
+   
+    <div class="inner_hire">
+     <!-- Short description -->
+    <p class="why-hire-card__desc">
+      Local charter bus company serving the DMV. Quick quotes, luxury seating, and experienced local drivers — with TVs, free headphones, bathrooms, and ADA accommodations.
+    </p>
+
+    <!-- Buttons -->
+    <div class="why-hire-card__btns">
+      <a href="gallery.html" class="hire_btn_indv">Book Now</a>
+      <a href="media.html" class="hire_btn_indv">Contact Us</a>
+    </div>
+    </div>
+
+         
           <!--I use these button where I would potential link to another page.
           Its important link because it helps anyone who want to book find it without having to search for the page.
         Ideally the website would be sent to an online portal to fill out contact information. -->
 </div>
-    </div>
+    
+
+    <div class="intro-b">
+  <!-- YOUR IMAGE: Replace with your own portrait photo -->
+  <img class="intro-b-img" src="images/new_busDriver.png" alt="A picture of the bus driver named Darwin and he wearing a navy blue suit">
+  <div class="intro-b-text">
+    <span class="intro-b-eyebrow">About Me</span>
+    <div class="intro-b-name">Meet Darwin</div>
+    <p class="intro-b-bio">I've been driving charter buses for over 20 years — from short trips to long service weeks. I started SuperTours because I believe in the American dream. Born in Honduras, I came to the USA to build a better life for my family. When you ride with us, you support a small business and a father.</p>
+    <a href="#" class="intro-b-btn">Get In Touch</a>
+  </div>
+</div>
 </section>
 <!-- Stats section with counting animation -->
 <div class="stats-container">
@@ -94,39 +99,13 @@
   </div>
 </div>
 
-<script>
-/* This makes the numbers count up from 0 to their target number
-   It grabs every stat-number element and animates it counting up
-   This is more engaging than just showing a static number */
-const counters = document.querySelectorAll('.stat-number');
 
-counters.forEach(counter => {
-  const target = +counter.getAttribute('data-target');
-  const speed = 200; /* lower = faster */
-
-  const update = () => {
-    const current = +counter.innerText;
-    const increment = Math.ceil(target / speed);
-
-    if (current < target) {
-      counter.innerText = current + increment;
-      setTimeout(update, 10); /* runs every 10ms */
-    } else {
-      counter.innerText = target; /* snaps to exact number at end */
-    }
-  };
-
-  update();
-});
-</script>
 
 <!--This section is for a cards! I made this section to emphasize value of the company!
 I also main a card wider than the rest because I wanted to explain why they should hire us. 
 I thought it be good to add more information on what the company offer. -->
-    <section class="big_card"> <!--This is big container-->
-
+<section class="big_card"> <!--This is big container-->
   <div class="small_card"> <!-- These are 3 cards-->
-    
     <img src="images/card1.jpg" alt="a man driving a steering wheel">
     <h3>Reliable</h3>
     <p>We guarantee a safe ride!</p>
@@ -137,12 +116,14 @@ I thought it be good to add more information on what the company offer. -->
     <h3>Responsible</h3>
     <p> We take 100% responsibility!</p>
   </div>
+
   <div class="small_card">
     <img src="images/time.jpg" alt="picture of a black clock showing time">
     <h3>Punctual</h3>
     <p>We are always on time!</p>
   </div>
 </section>
+
 <!--THE CALL TO ACTION-->
 <!--The call to action section is about what future customer can do. 
 This allows user to have contact information and emphasize that are company is ready to serve.-->
@@ -165,13 +146,20 @@ This allows user to have contact information and emphasize that are company is r
     <p>🌸 Book us for the Annual Cherry Blossom Festival in DC!</p>
     <a href="https://nationalcherryblossomfestival.org/">Visit the National Cherry Blossom Festival</a>
   </div>
-  <!--I added a picture like this because I want them to see the picture of the bus at the end of the page. 
-  I personally thought it was really cool to further emphasize that the bus is high quality.-->
-  <img class="cta_img" src="images/editHero.png" alt="picture of the bus exterior">
+  
 </section>
 
     </main>
+    <!--FOOTER SECTION-->
+  <footer>
+  <div>© 2026 Carmen Cruz</div>
+  <div class="links">
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+    <a href="#">Contact</a>
+  </div>
+</footer>
     
-<footer> &copy; 2026 Carmen Cruz </footer>
+
 </body>
 </html>
