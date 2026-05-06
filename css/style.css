@@ -73,7 +73,10 @@ header {
   height: 80px;
 }
 
+h1, h2{ font-family: var(--font-secondary-paragraph);
+  text-align: center;
 
+}
 .logo {
   background-image: url('/images/logo5.png');
   background-size: 45px 45px;
@@ -242,17 +245,26 @@ font-size: 18px;
 /* Mobile view */
 @media (max-width: 767px) {
   .desktop_n {
-    display: none;        /* hide desktop nav */
+    display: none;
   }
   .mobile-toggle {
-    display: flex;        /* show hamburger */
-
+    display: flex;
   }
-  
+  .big_card {
+    grid-template-columns: 1fr;
+    width: 100%;
+    padding: 16px;
+    gap: 16px;
+  }
+  .small_card {
+    margin: 0 !important;
+    width: 100%;
+  }
+}
   
 
   
-}
+
 
 /*FOOTER*/
  
@@ -701,8 +713,8 @@ a:hover {
 /* The label below the number */
 .stat-label {
   display: block;
-  font-size: 10 rem;
-  color: white;
+  font-size: var(--font-lg);
+  color: black;
   margin-top: 5px;
   padding: 0 10px;
 }
@@ -722,7 +734,7 @@ a:hover {
 /* Individual value card */
 .small_card {
   border: var(--border);
-  margin: var(--small-space);
+  margin: 0;
   background-color: var(--accent-color);
   text-align: center;
   box-shadow: var(--shadow-lg);
@@ -791,53 +803,60 @@ a:hover {
 
 .intro-b-eyebrow{
   
-  font-size:.7rem;
+  font-size:var(--font-md);
   font-weight:700;
   letter-spacing:.14em;
-  
+  background-color: white;
+  width: 25%;
+  border-radius: 10px;
   text-transform:uppercase;
-  color:#6366f1;
+  color:rgb(24, 67, 240);
   margin-bottom:14px;
+  padding: 5px;
+  text-align: center;
 }
 
 .intro-b-name{
   
-  font-family:'DM Serif Display',serif;
+  font-family:var(--font-unique);
   
   font-size:clamp(1.6rem,3vw,2.4rem);
-  color:#fff;
-  
+  color:black;
   line-height:1.1;
   margin-bottom:16px;
 }
 
 .intro-b-bio{
   
-  font-size:.92rem;
-  color:rgba(255,255,255,.5);
-  
+  font-size:var(--font-md);
+  color:black;
+  font-family: var(--font-paragraph);
   line-height:1.75;
   margin-bottom:24px;
+  text-align: left;
 }
 
 .intro-b-btn{
-  
+  align-self: flex-end;
   display:inline-block;
   padding:11px 26px;
   border-radius:8px;
-  
-  background:#6366f1;
-  color:#fff;
+    border:2px solid black;
+
+  background:white;
+  color:black;
   font-weight:600;
-  font-size:.85rem;
-  
+  font-size: var(--font-normal);
+  font-family:var(--font-secondary-paragraph);
+  box-shadow: var(--shadow-md);
   text-decoration:none;
   transition:all .2s;
   width:fit-content;
 }
 
 .intro-b-btn:hover{
-  background:#4f46e5;
+  color:black;
+  background:rgb(144, 144, 244);
   transform:translateY(-2px);
 }
 
@@ -850,23 +869,30 @@ a:hover {
   border-radius:16px;
   overflow:hidden;
   
-  background:#111118;
+  background:skyblue;
 }
 
 /* TESTING */
 .cta_img{
   border-radius: var(--border-radius-smaller);
+  
 }
 .why-hire-card{
  
   padding: 25px;
   border-radius: var(--border-radius-smaller);
-  background-color: #831843;
+  background-color: var(--accent-color);
+    margin: 0 -25px; /* counteract main's padding */
+
+
+
 }
+
 .inner_hire{
   background-color: white;
   padding: 25px;
-  border-radius: var(--border-radius-smaller);
+    border-radius: var(--border-radius-smaller);
+
 
 }
 .inner_hire_us{
@@ -885,17 +911,32 @@ a:hover {
 
 }
 .hire_btn_indv{
-    display: inline-block; /* add this */
-
+  display: inline-block; /* add this */
+  box-shadow: var(--shadow-sm);
   border:2px solid black;
   padding:12px;
   border-radius: var(--border-radius-smaller);
   color:black;
-    text-decoration: none; /* removes the underline */
+  text-decoration: none; /* removes the underline */
+  transition:all .2s;
+
 
 }
 .hire_btn_indv:hover {
-  background-color: white;
+  background-color: skyblue;
   color: black;
-  transition: 0.2s;
+ transform: translateY(-2px);
+}
+.why-hire-card__desc {
+    line-height:1.35;
+}
+.callToAction{
+  background-color: rgb(217, 255, 255);
+}
+
+.callToAction, p{
+  padding: 24px;
+  margin-top:30px;
+  font-family: var(--font-secondary-paragraph);
+
 }
