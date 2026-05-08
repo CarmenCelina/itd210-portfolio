@@ -8,6 +8,13 @@ mobileToggle.addEventListener("click", function () {
   mobileNav.classList.toggle("open");
 });
 
+//Claude.ai :it hides the mobile nav when stretch out to desktop
+window.addEventListener('resize', () => {
+  if (window.innerWidth >= 768) {
+    mobileNav.classList.remove('open');
+  }
+}); 
+
 /* JS for videos */
  function toggleVideo() {
     const video = document.getElementById('heroVideo');

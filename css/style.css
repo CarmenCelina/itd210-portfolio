@@ -5,7 +5,7 @@
 }
  @font-face {
   font-family: 'playfair';
-  src: url(./font/PlayfairDisplay-VariableFont_wght.ttf)format('truetype');
+  src: url('../font/PlayfairDisplay-VariableFont_wght.ttf')format('truetype');
   font-weight: 400;
 }
 
@@ -38,7 +38,7 @@
   /* SPACING */
   --small-space: 8px;
   --medium-space: 16px;
-  --large-space: 32px;
+  --large-space: 30px;
 
    /* BORDER RADIUS - adds slight rounded corners to elements */
   --border-radius: 20px;
@@ -72,11 +72,35 @@ header {
   padding: 0 20px;
   height: 80px;
 }
+/*H1  & H2 STYLES */
+h1{
+  text-align: center;
+}
 
-h1, h2{ font-family: var(--font-secondary-paragraph);
+ h2{ font-family: var(--font-secondary-paragraph);
+  text-align: center;
+}
+.h1_about{
+  background-color: white;
+  border:3px solid black;
+  border-radius: 10px;
+  padding:5px;
+  font-family: var(--font-paragraph);
+  margin-top: 30px;
   text-align: center;
 
 }
+.h1_gallery{
+  background-color: white;
+  border:3px solid black;
+  border-radius: 10px;
+  padding:5px;
+  font-family: var(--font-paragraph);
+  text-align: center;
+
+}
+
+
 .logo {
   background-image: url('/images/logo5.png');
   background-size: 45px 45px;
@@ -116,12 +140,18 @@ h1, h2{ font-family: var(--font-secondary-paragraph);
 }
 
 /* Menu links */
+/* This help design the nav bar */
 .mobile_n a {
   padding: 10px 20px;   /* clickable space */
   text-align: center;    /* center links */
   display: block;        /* each link on its own line */
-   border-radius: var(--border-radius);
+  border-radius: var(--border-radius);
    color: black;
+  border: 2px solid black; /* add this */
+  margin-top: 14px;
+  font-family: var(--font-paragraph);
+  font-size: var(--font-lg);
+  background-color: rgb(245, 216, 238);
 
 }
 
@@ -138,17 +168,18 @@ h1, h2{ font-family: var(--font-secondary-paragraph);
   padding: 1px;
   z-index: 1001; /* so it’s above the menu */
   
+  
 }
 
-  /* controls the toggle */
+  /* controls the toggle: this shows how the mobile hamburger will look */
 .mobile-toggle span {
   display: block;
   height: 2px;
-  width: 30px;
+  width: 35px;
   background-color: var(--accent-color);
-  border:1px solid navy;
+  border:3px solid rgb(218, 158, 218);
 }
-.open{ /*show menu when hamburger is clicked */
+.open{ /*show menu when hamburger is clicked & connects with js */
   display: flex !important;
 }
 
@@ -214,54 +245,6 @@ font-size: 18px;
   color: var(--accent-color); /* or whatever color you want */
 }
 
-/* This mean apply  the style when the screen is bigger than 768px */
-@media (min-width: 768px) {
-
-  .logo h1 {
-    font-size: var(--font-xl);       /* bigger on desktop */
-    
-  }
-  .logo {
-    background-size: 55px 55px;
-    padding-left: 65px;
-  }
-}
-  .desktop_n {
-    display: flex;  /* show desktop menu */
-    gap: 15px;
-  }
-  .mobile_n, .mobile-toggle {
-    display: none; /* hide hamburger button */
-  }
-.mobile_n a {
-  padding: 10px 20px;
-  text-align: center;
-  display: block;
-  border-radius: var(--border-radius);
-  font-size: var(--font-md);
-  font-family: var(--main-font);
-}
-
-/* Mobile view */
-@media (max-width: 767px) {
-  .desktop_n {
-    display: none;
-  }
-  .mobile-toggle {
-    display: flex;
-  }
-  .big_card {
-    grid-template-columns: 1fr;
-    width: 100%;
-    padding: 16px;
-    gap: 16px;
-  }
-  .small_card {
-    margin: 0 !important;
-    width: 100%;
-  }
-}
-  
 
   
 
@@ -310,7 +293,6 @@ border-radius:var(--border-radius-smaller);
   
 
 /* CARDS FOR INDEX.HTML*/
-/* ── Grid container ── */
 /* ── Grid container ── */
 .card-grid {
   display: grid;
@@ -362,6 +344,7 @@ border-radius:var(--border-radius-smaller);
   text-transform: uppercase;
   letter-spacing: .04em;
 }
+/* color of the ribbion*/
 .ribbon.new  { background: linear-gradient(135deg, #ec4899, #f43f5e); color: #fff; }
 .ribbon.sale { background: linear-gradient(135deg, #10b981, #22c55e); color: #fff; }
 .ribbon.hot  { background: linear-gradient(135deg, #f97316, #f43f5e); color: #fff; }
@@ -468,12 +451,13 @@ border-radius:var(--border-radius-smaller);
     right: 20px;
     z-index: 3;
     padding: 10px 20px;
-    font-size: 15px;
+    font-size: var(--font-md);
     background-color: rgba(0, 0, 0, 0.6);
     color: white;
     border: 2px solid white;
     border-radius: 6px;
     cursor: pointer;
+    font-family: var(--font-secondary-paragraph);
   }
 
   .pause-btn:hover {
@@ -483,7 +467,7 @@ border-radius:var(--border-radius-smaller);
 /**********************Review.css edited to one css file **********************************************/
 .masonry-grid {
     display: grid; /*Made the cards a grid box & its the overall layout */
-    grid-template-columns: repeat(3, 1fr); /*This means 1fr 3 times */
+    grid-template-columns: 1fr; /*mobile:1 column change for better mobile use */
     gap: 1.5rem;
     margin:5%;
 }
@@ -501,9 +485,7 @@ border-radius:var(--border-radius-smaller);
 
 
 }
-.masonry-card:hover{
-  transform: rotate(15deg); /* Rotates the card on hover */
-}
+
 
 .masonry-card:nth-child(1),
 .masonry-card:nth-child(4) {
@@ -519,6 +501,12 @@ border-radius:var(--border-radius-smaller);
 }
 
 .animated-text-reviews {
+  
+   background-color: white;
+  border:3px solid black;
+  border-radius: 10px;
+  padding:5px;
+  font-family: var(--font-paragraph);
   text-align: center;
   font-size: 2rem;
   font-weight: 800;
@@ -686,13 +674,14 @@ a:hover {
   flex-wrap: wrap;
   padding: 30px;
   background-color: var(--main-color);
+  margin-top: var(--large-space);
 }
 
 /* Individual stat circle */
 .stat-box {
   text-align: center;
   background-color: var(--accent-color);
-  border-radius: 50%; /* makes it a perfect circle */
+  border-radius: 25%; /* makes the edge of circle */
   width: 150px;       /* must be equal width and height for circle */
   height: 150px;
   display: flex;
@@ -707,7 +696,7 @@ a:hover {
   display: block;
   font-size: 2.5rem; /*1rem=16px*/
   font-weight: 700; /*Boldness */
-  color: var(--main-color);
+  color: navy;
 }
 
 /* The label below the number */
@@ -719,6 +708,7 @@ a:hover {
   padding: 0 10px;
 }
 
+
 /***********CARD FOR ABOUT PAGE **********/
 
 /*** CARDS SECTION ***/
@@ -726,7 +716,7 @@ a:hover {
 /* Grid container holding all three value cards */
 .big_card {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr; /* 3 equal columns — use 1fr on mobile via media query */
+  grid-template-columns: 1fr; /* use 1fr on mobile via (Mobile first) */
   gap: var(--medium-space);
   border-radius: var(--border-radius);
 }
@@ -734,13 +724,22 @@ a:hover {
 /* Individual value card */
 .small_card {
   border: var(--border);
-  margin: 0;
+  margin-top: var(--large-space);
   background-color: var(--accent-color);
   text-align: center;
   box-shadow: var(--shadow-lg);
   border-radius: var(--border-radius);
 }
-
+.small_card p {
+  padding:25px;
+  font-family: var(--font-secondary-paragraph);
+}
+.small_card h3{
+  background-color:whitesmoke;
+}
+.small_card img {
+  border-radius: var(--border-radius-smaller);
+}
 /* Wide card: full-width card used to explain services (centered below the grid) */
 .small_card_wide {
   width: 75%;
@@ -761,16 +760,25 @@ a:hover {
   background-color: #ffd5dd; /* light pink background */
   border: 2px solid #d6436f; /* darker pink border */
   border-radius: var(--border-radius);
-  padding: var(--medium-space);
+  padding: 20px;
   margin: var(--medium-space) auto; /* centers the box */
-  max-width: 400px; /* keeps it small and compact */
+  max-width: 350px; /* keeps it small and compact */
   color: #c2185b; /* dark pink text */
+  text-align: center;
+}
+/* ADD THIS RIGHT BELOW IT */
+.cherry_blossom p {
+  padding: 8px;
+  margin: 0;
+  font-size: var(--font-normal);
 }
 
 .cherry_blossom a {
   color: #880e4f; /* darker pink for the link */
   font-weight: bold;
   text-decoration: none;
+  
+
 }
 
 .cherry_blossom a:hover {
@@ -891,7 +899,7 @@ a:hover {
 .inner_hire{
   background-color: white;
   padding: 25px;
-    border-radius: var(--border-radius-smaller);
+  border-radius: var(--border-radius-smaller);
 
 
 }
@@ -900,7 +908,7 @@ a:hover {
   font-family: var(--font-secondary-paragraph);
   border-radius: var(--border-radius);
   background-color: var(--accent-color);
-  margin-top: 0px;
+  margin-top: var(--large-space);
   margin-bottom: 30px;
   
 }
@@ -930,13 +938,94 @@ a:hover {
 .why-hire-card__desc {
     line-height:1.35;
 }
-.callToAction{
+.callToAction {
   background-color: rgb(217, 255, 255);
+  margin-top: var(--large-space);
+  padding: 0 0 24px 0;
+  text-align: center;
 }
 
-.callToAction, p{
-  padding: 24px;
-  margin-top:30px;
-  font-family: var(--font-secondary-paragraph);
+.callToAction h3 {
+  border-radius: 0;
+  margin: 0 0 16px 0;
+}
 
+.callToAction p {
+  padding: 8px 24px;
+  font-family: var(--font-secondary-paragraph);
+  margin-bottom: 12px;   /* ADD - space between paragraphs */
+  line-height: 1.2;      /* ADD - more breathing room between lines */
+
+}
+
+/* @MEDIA- GOES FROM MOBILE-TABLET-DESKTOP */
+/*The way this work is that each @media has a breakpoint! So, each @media has different things that change or get affected */
+
+/* Mobile view */
+@media (max-width: 767px) {
+  .desktop_n {
+    display: none;
+  }
+  .mobile-toggle {
+    display: flex;
+  }
+ .intro-b {
+    grid-template-columns: 1fr; /* stack image on top for bus driver */
+  }
+
+  .intro-b-text {
+    padding: 20px; /* reduce padding */
+  }
+  .intro-b-eyebrow {
+    width: 40%; /* was 25%, too small on mobile */
+  }
+}
+
+/* TABLET - min-width: 480px and max-width: 767px 
+    This create an inbtween before full desktop or full mobile*/
+@media (min-width: 620px) and (max-width: 767px) {
+  .big_card {
+    grid-template-columns: repeat(2, 1fr); /*2 column */
+  }
+}
+  
+
+/*-I recieved help from Claude.ai 
+-I learned that mobile first means I have to put 1fr(outisde the @media and the desktop set up inside the @media
+-Also the layout @media DESKTOP version had to be put after the mobile media 
+or it doesn't work*/
+@media (min-width: 768px) {
+
+  .mobile_n, .mobile-toggle {
+    display: none !important;
+  }
+
+   .big_card{ grid-template-columns: repeat(3, 1fr); /* 3 column desktop */
+
+   }
+
+
+  .masonry-grid {
+        grid-template-columns: repeat(3, 1fr); /* desktop */
+    }
+
+  .logo h1 {
+    font-size: var(--font-xl);       /* bigger on desktop */
+    
+  }
+  .logo {
+    background-size: 55px 55px;
+    padding-left: 65px;
+  
+}
+  .desktop_n {
+    display: flex;  /* show desktop menu */
+    gap: 15px;
+  }
+  .mobile_n, .mobile-toggle {
+    display: none; /* hide hamburger button */
+  }
+  .masonry-card:hover{
+  transform: rotate(15deg); /* Rotates the card on hover ONLY On desktop */
+}
 }
