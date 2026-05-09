@@ -30,15 +30,27 @@
   --background-color: #87D3F8; /* Blue Gray */
 
   /* FONTS */
-  --main-font: Arial, sans-serif;
+  --main-font: 'Commissioner', Arial, sans-serif; /* default body sans-serif */
   --font-paragraph: 'playfair',sans-serif;
   --font-unique: 'vast', sans-serif;
-  --font-secondary-paragraph:'Commissioner', sans-serif;
+  --font-secondary-paragraph:'Commissioner', Arial, sans-serif;
 
-  /* SPACING */
-  --small-space: 8px;
-  --medium-space: 16px;
-  --large-space: 30px;
+  /* SPACING — consistent 4/8/16/24/32/48/64 scale */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  /* legacy aliases (kept so existing rules still work) */
+  --small-space: var(--space-sm);
+  --medium-space: var(--space-md);
+  --large-space: var(--space-xl);
+
+  /* Layout */
+  --container-max: 1200px;
+  --page-gutter: clamp(20px, 4vw, 32px);
 
    /* BORDER RADIUS - adds slight rounded corners to elements */
   --border-radius: 20px;
@@ -51,10 +63,10 @@
   --font-lg: 1.50rem;     /* 20px */
   --font-xl: 2rem;      /* 24px */
 
-  /* SHADOW - This is use to make a shadow for text and box*/
-  --shadow-sm: 0px 2px 4px grey;
-  --shadow-md: 3px 4px 8px grey;
-  --shadow-lg: 7px 5px 4px rgba(103, 103, 103, 0.282);
+  /* SHADOW - softer, more modern feel */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.10);
+  --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.10);
+  --shadow-lg: 0 10px 24px rgba(0, 0, 0, 0.12);
 
 }
 /* IMAGE RESPONSIVE */
@@ -63,14 +75,33 @@ img {
   height: auto; /* keeps aspect ratio */
   display: block; /*makes element take full width of container and stack  */
 }
-html, body {  background-color: var(--background-color)
+html, body {
+  background-color: var(--background-color);
+  font-family: var(--main-font);
+  color: var(--text-color);
+  line-height: 1.55;
 }
 header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 0 var(--page-gutter);
   height: 80px;
+}
+
+/* Page content container — gutters + max width for readability on big screens */
+main {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--space-lg) var(--page-gutter) var(--space-2xl);
+}
+
+/* Vertical rhythm between top-level sections inside main */
+main > section + section,
+main > section + div,
+main > div + section,
+main > div + div {
+  margin-top: var(--space-2xl);
 }
 /*H1  & H2 STYLES */
 h1{
@@ -80,24 +111,15 @@ h1{
  h2{ font-family: var(--font-secondary-paragraph);
   text-align: center;
 }
-.h1_about{
+.h1_about,
+.h1_gallery {
   background-color: white;
-  border:3px solid black;
-  border-radius: 10px;
-  padding:5px;
-  font-family: var(--font-paragraph);
-  margin-top: 30px;
-  text-align: center;
-
-}
-.h1_gallery{
-  background-color: white;
-  border:3px solid black;
-  border-radius: 10px;
-  padding:5px;
+  border: 3px solid black;
+  border-radius: 12px;
+  padding: var(--space-md) var(--space-lg);
   font-family: var(--font-paragraph);
   text-align: center;
-
+  margin-bottom: var(--space-xl);
 }
 
 
@@ -146,13 +168,19 @@ h1{
   text-align: center;    /* center links */
   display: block;        /* each link on its own line */
   border-radius: var(--border-radius);
-   color: black;
-  border: 2px solid black; /* add this */
-  margin-top: 14px;
-  font-family: var(--font-paragraph);
+  color: black;
+  border: 2px solid black;
+  margin: 14px 14px 0;
+  font-family: var(--main-font);
+  font-weight: 600;
   font-size: var(--font-lg);
   background-color: rgb(245, 216, 238);
-
+  text-decoration: none;
+  transition: background-color .2s ease, transform .15s ease;
+}
+.mobile_n a:hover {
+  background-color: var(--accent-color);
+  transform: translateY(-2px);
 }
 
 /* Hamburger button */
@@ -166,7 +194,7 @@ h1{
   background: transparent;
   border: none;
   padding: 1px;
-  z-index: 1001; /* so it’s above the menu */
+  z-index: 10001; /* must stay above .mobile_n (10000) so user can tap to close */
   
   
 }
@@ -229,20 +257,22 @@ h1{
 }
 
 
-.desktop_n a{ color: #000000;
-border: 2px solid var(--accent-color);
-text-decoration: none; /* removes underline */
-background-color: #FFF3E7;
-padding: 5px 15px;
-text-align: right;
-border-radius: 12px; /* br */
-font-family: var(--main-font);
-font-size: 18px;
-
-
+.desktop_n a{
+  color: #000000;
+  border: 2px solid var(--accent-color);
+  text-decoration: none;
+  background-color: #FFF3E7;
+  padding: 5px 15px;
+  text-align: right;
+  border-radius: 12px;
+  font-family: var(--main-font);
+  font-size: 18px;
+  transition: background-color .2s ease, color .2s ease, transform .15s ease;
 }
 .desktop_n a:hover {
-  color: var(--accent-color); /* or whatever color you want */
+  background-color: var(--accent-color);
+  color: #000000;
+  transform: translateY(-2px);
 }
 
 
@@ -250,22 +280,23 @@ font-size: 18px;
 
 
 /*FOOTER*/
- 
+
 footer {
-  padding: 28px 30px;
+  padding: var(--space-lg) var(--page-gutter);
   display: flex;
   justify-content: space-between;
-  border-top: 1px solid BLACK;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  border-top: 1px solid #e5e5e5;
   font-size: var(--font-normal);
   font-family:var(--main-font);
   color: black;
   background-color: white;
-  width:100vw;
-  margin-top: 60px;
-  overflow: hidden; 
-
+  width: 100%;
+  margin-top: var(--space-3xl);
 }
- .links { display: flex; gap: 20px;
+ .links { display: flex; gap: var(--space-lg);
    font-family:var(--main-font);
 
  }
@@ -275,18 +306,21 @@ footer {
  p{
   text-align: center;
   font-size:var(--font-md);
-  font-family:var(--font-paragraph);
+  font-family:var(--main-font);
+  line-height: 1.6;
  }
 
 
-h3{background-color: antiquewhite;
-padding: 10px;
-box-shadow: 4px 4px 7px 1px gray;
-text-align: center;
-font-size:var(--font-lg) ;
-font-family:var(--font-unique);
-font-weight: 400;
-border-radius:var(--border-radius-smaller);
+h3{
+  background-color: antiquewhite;
+  padding: var(--space-md) var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  font-size: var(--font-lg);
+  font-family: var(--font-unique);
+  font-weight: 400;
+  border-radius: var(--border-radius-smaller);
+  margin-bottom: var(--space-md);
 }
 
 
@@ -296,13 +330,9 @@ border-radius:var(--border-radius-smaller);
 /* ── Grid container ── */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  margin: 4rem 0 0 0;   /* ← adds space above the grid */
-
-  gap: 25px;
-  padding: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
   width: 100%;
-  box-sizing: border-box;
 }
 
 /* ── Card shell ── */
@@ -313,6 +343,12 @@ border-radius:var(--border-radius-smaller);
   border: 1px solid #f0f0f0;
   width: 100%;
   box-sizing: border-box;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
 }
 
 /* ── Thumbnail ── */
@@ -468,22 +504,22 @@ border-radius:var(--border-radius-smaller);
 .masonry-grid {
     display: grid; /*Made the cards a grid box & its the overall layout */
     grid-template-columns: 1fr; /*mobile:1 column change for better mobile use */
-    gap: 1.5rem;
-    margin:5%;
+    gap: var(--space-lg);
 }
 
 .masonry-card {
-    border-radius: 8px;
+    border-radius: var(--border-radius-smaller);
     padding: 15px;
     display: flex; /* Controls the layout (inside) each card */
     flex-direction: column; /* Stacks content top to bottom */
     border: 4px outset white;
     text-align: center;
-    box-shadow: 0px 10px 10px 0px rgba(12,78,233,0.3);
+    box-shadow: var(--shadow-md);
     background: white;
-    transition: all 0.4s ease; /* animate transition builder (lab 1) */
-
-
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.masonry-card:hover {
+    box-shadow: var(--shadow-lg);
 }
 
 
@@ -501,11 +537,11 @@ border-radius:var(--border-radius-smaller);
 }
 
 .animated-text-reviews {
-  
-   background-color: white;
-  border:3px solid black;
-  border-radius: 10px;
-  padding:5px;
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 12px;
+  padding: var(--space-md) var(--space-lg);
+  margin-bottom: var(--space-xl);
   font-family: var(--font-paragraph);
   text-align: center;
   font-size: 2rem;
@@ -604,10 +640,8 @@ a:hover {
 }
 .media_intro{
   border: 3px solid black;
-  padding: 10px;
+  padding: var(--space-lg);
   border-radius: var(--border-radius);
-  margin-bottom:20px;
-  margin-top: 20px;
   font-size: 20px;
   background-color: var(--main-color);
   text-align: center;
@@ -670,11 +704,11 @@ a:hover {
 .stats-container {
   display: flex; /*Flexbox */
   justify-content: center;
-  gap: 30px;
+  gap: var(--space-lg);
   flex-wrap: wrap;
-  padding: 30px;
+  padding: var(--space-xl);
   background-color: var(--main-color);
-  margin-top: var(--large-space);
+  border-radius: var(--border-radius);
 }
 
 /* Individual stat circle */
@@ -688,7 +722,12 @@ a:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: 4px 4px 0px black;
+  box-shadow: var(--shadow-md);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.stat-box:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
 }
 
 /* The big number inside the circle */
@@ -717,21 +756,26 @@ a:hover {
 .big_card {
   display: grid;
   grid-template-columns: 1fr; /* use 1fr on mobile via (Mobile first) */
-  gap: var(--medium-space);
+  gap: var(--space-lg);
   border-radius: var(--border-radius);
 }
 
 /* Individual value card */
 .small_card {
   border: var(--border);
-  margin-top: var(--large-space);
   background-color: var(--accent-color);
   text-align: center;
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-md);
   border-radius: var(--border-radius);
+  overflow: hidden;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.small_card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
 }
 .small_card p {
-  padding:25px;
+  padding: var(--space-lg);
   font-family: var(--font-secondary-paragraph);
 }
 .small_card h3{
@@ -801,12 +845,10 @@ a:hover {
 }
 
 .intro-b-text{
-  
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  
-  padding:48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(20px, 4vw, 48px);
 }
 
 .intro-b-eyebrow{
@@ -835,10 +877,10 @@ a:hover {
 }
 
 .intro-b-bio{
-  
+
   font-size:var(--font-md);
   color:black;
-  font-family: var(--font-paragraph);
+  font-family: var(--main-font);
   line-height:1.75;
   margin-bottom:24px;
   text-align: left;
@@ -886,14 +928,9 @@ a:hover {
   
 }
 .why-hire-card{
- 
-  padding: 25px;
+  padding: var(--space-lg);
   border-radius: var(--border-radius-smaller);
   background-color: var(--accent-color);
-    margin: 0 -25px; /* counteract main's padding */
-
-
-
 }
 
 .inner_hire{
@@ -904,13 +941,10 @@ a:hover {
 
 }
 .inner_hire_us{
-  padding:25px;
+  padding: var(--space-lg);
   font-family: var(--font-secondary-paragraph);
   border-radius: var(--border-radius);
   background-color: var(--accent-color);
-  margin-top: var(--large-space);
-  margin-bottom: 30px;
-  
 }
 .why-hire-card__btns{
   display: flex;
@@ -940,22 +974,22 @@ a:hover {
 }
 .callToAction {
   background-color: rgb(217, 255, 255);
-  margin-top: var(--large-space);
-  padding: 0 0 24px 0;
+  padding: 0 0 var(--space-xl);
   text-align: center;
+  border-radius: var(--border-radius);
+  overflow: hidden;
 }
 
 .callToAction h3 {
   border-radius: 0;
-  margin: 0 0 16px 0;
+  margin: 0 0 var(--space-md);
 }
 
 .callToAction p {
-  padding: 8px 24px;
+  padding: var(--space-sm) var(--space-lg);
   font-family: var(--font-secondary-paragraph);
-  margin-bottom: 12px;   /* ADD - space between paragraphs */
-  line-height: 1.2;      /* ADD - more breathing room between lines */
-
+  margin-bottom: var(--space-md);
+  line-height: 1.5;
 }
 
 /* @MEDIA- GOES FROM MOBILE-TABLET-DESKTOP */

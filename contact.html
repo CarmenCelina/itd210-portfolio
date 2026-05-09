@@ -6,6 +6,8 @@
     <title>Contact</title>
     <!-- loads the Tailwind CSS framework from the internet -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Phosphor icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.2"></script>
     <script>
       /* I added tailwind custom colors from index.html/css file */
       tailwind.config = {
@@ -25,7 +27,7 @@
     </script>
     <style>
        /*FOOTER*/
- 
+
 footer {
   padding: 28px 30px;
   display: flex;
@@ -36,11 +38,63 @@ footer {
   background-color: white;
   width:100vw;
   margin-top: 60px;
- overflow: hidden; 
+ overflow: hidden;
 
 }
  .links { display: flex; gap: 20px;
- } 
+ }
+
+/* MOBILE NAV — matches the pattern used on the other pages */
+.mobile-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 25px;
+  align-items: center;
+  background: transparent;
+  border: none;
+  padding: 1px;
+  z-index: 10001; /* above the open menu so the user can tap to close */
+  cursor: pointer;
+}
+.mobile-toggle span {
+  display: block;
+  height: 2px;
+  width: 35px;
+  background-color: #ebc2a6;
+  border: 3px solid rgb(218, 158, 218);
+}
+.mobile_n {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: white;
+  flex-direction: column;
+  display: none;
+  z-index: 10000;
+  padding-top: 60px;
+  border-radius: 20px;
+}
+.mobile_n a {
+  padding: 10px 20px;
+  text-align: center;
+  display: block;
+  border-radius: 20px;
+  color: black;
+  border: 2px solid black;
+  margin: 14px 14px 0;
+  font-size: 1.5rem;
+  background-color: rgb(245, 216, 238);
+  text-decoration: none;
+}
+.mobile_n.open { display: flex; }
+
+@media (min-width: 768px) {
+  .mobile-toggle, .mobile_n { display: none !important; }
+}
     </style>
 </head>
 
@@ -56,17 +110,33 @@ footer {
     <h1 class="text-2xl md:text-4xl lg:text-6xl font-bold text-center w-full">Contact Us</h1>
 </header>
 
-<!-- Desktop Nav -->
- <!--This is style for the nav bg is cream background & flexbox& justify end make the nav go to right of page-->
-<nav class="bg-cream flex justify-end gap-6 px-6 py-3 border-b border-gray-200">
-    <!--the nav link to each site with hover-->
+<!-- Desktop Nav — hidden on mobile, shown at md and up -->
+<nav class="bg-cream hidden md:flex justify-end gap-6 px-6 py-3 border-b border-gray-200">
     <a href="index.html" class="hover:text-sienna transition duration-300">Home</a>
     <a href="about.html" class="hover:text-sienna transition duration-300">About</a>
     <a href="gallery.html" class="hover:text-sienna transition duration-300">Gallery</a>
     <a href="media.html" class="hover:text-sienna transition duration-300">Media</a>
     <a href="review.html" class="hover:text-sienna transition duration-300">Review</a>
     <a href="contact.html" class="hover:text-sienna  transition duration-300">Contact</a>
-   
+</nav>
+
+<!-- Mobile hamburger — only visible below md -->
+<div class="bg-cream md:hidden flex justify-end px-6 py-3 border-b border-gray-200">
+  <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle mobile menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</div>
+
+<!-- Mobile nav drawer (sits outside the header so position:fixed is unaffected) -->
+<nav class="mobile_n" id="mobileNav">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="media.html">Media</a>
+  <a href="review.html">Reviews</a>
+  <a href="contact.html">Contact</a>
 </nav>
 
 <main>
@@ -88,25 +158,22 @@ footer {
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
         <!-- Email Card -->
-        <!-- hover:shadow-lg adds a bigger shadow when hovered -->
         <div class="bg-white rounded-xl shadow p-6 text-center hover:shadow-lg hover:scale-105 transition duration-300">
-             <img src="images/email_icon.jpg" alt="email icon">
+            <i class="ph-fill ph-envelope text-6xl text-sienna block mb-3" aria-hidden="true"></i>
             <h3 class="text-xl font-bold mb-1">Email</h3>
             <p class="text-gray-500 text-sm">superTours@gmail.com</p>
         </div>
 
-         <!-- WhatApps Card -->
-          <!--rounded-xl round the corners-->
-          <!--hover:scale-105 means when user hovers over the card hover about 300mili seconds-->
+         <!-- WhatApp Card -->
         <div class="bg-white rounded-xl shadow p-6 text-center hover:shadow-lg hover:scale-105 transition duration-300">
-         <img src="images/whatapppic2.png" alt="whatapp.com icon"> 
+            <i class="ph-fill ph-whatsapp-logo text-6xl text-sienna block mb-3" aria-hidden="true"></i>
             <h3 class="text-xl font-bold mb-1">WhatApp</h3>
             <p class="text-gray-500 text-sm">+1342-555-1124</p>
         </div>
 
         <!-- Phone Card -->
         <div class="bg-white rounded-xl shadow p-6 text-center hover:shadow-lg hover:scale-105 transition duration-300">
-        <img src="images/phoneIcon.jpg" alt="phone icon">
+            <i class="ph-fill ph-phone text-6xl text-sienna block mb-3" aria-hidden="true"></i>
             <h3 class="text-xl font-bold mb-1">Phone</h3>
             <p class="text-gray-500 text-sm">(123) 456-7890</p>
         </div>
@@ -159,5 +226,6 @@ footer {
 
   </div>
 </footer>
+<script src="js/script.js"></script>
 </body>
 </html>
