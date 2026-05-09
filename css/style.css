@@ -3,6 +3,7 @@
   margin: 0; 
   padding:0;
 }
+/*FONTS */
  @font-face {
   font-family: 'playfair';
   src: url('../font/PlayfairDisplay-VariableFont_wght.ttf')format('truetype');
