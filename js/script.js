@@ -48,3 +48,13 @@ function toggleAudio() {
     btn.innerHTML = '<i class="ph ph-speaker-high" aria-hidden="true"></i> Play Welcome Message';
   }
 }
+/* This is the javascript that allows the button to scroll up with the help of Claude.AI */
+const backToTop = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+  backToTop.style.display = window.scrollY > 300 ? "block" : "none";
+});
+
+backToTop.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
