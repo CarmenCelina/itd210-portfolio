@@ -10,8 +10,13 @@ This is my capstone project for my web design class. This website is responsive 
 - JavaScript
 - Milestone 3
 - added lazy loading & perfers-reduced-motion 
-
-## NEW UPDATE
+## Resources 
+- https://drjulsgilliam.github.io/HTML-CSS-Visual-Playground/index.html
+- https://www.canva.com/ 
+- https://www.pexels.com/ 
+- https://claude.ai/ 
+- Dr.Gilliam
+## FEATURES
 Media.html 
    - Has 4 Videos
    - Transcript
@@ -20,6 +25,13 @@ Media.html
 - About.html
     - Big quote
     - Stats-container with JS 
+- ALL pages are responsive on mobile
+- Contact.html tailwind
+- Review.html has Masonry-grid & animation
+## Reflection
+I learned that making a great webpage requires a lot of unexpected turns and twists. I think that having an idea is great, but without guidance, it is hard to complete a project. Overall, 
+I am very grateful to have completed my capstone. I learned how to use Tailwind, Grid, JavaScript, Canva, cards, responsive websites, roots for styling, and photo gallery.
+
 
 
 ## Course

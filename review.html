@@ -5,43 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reviews</title>
     <link rel="stylesheet" href="css/style.css">
-
-
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.2"></script>
 </head>
 <body>
     
-     <header>
-        <div class="logo">
-        <h1>SuperTours Charter Bus</h1>
-        </div>
-        <!--mobile toggle try 1-->
-        <button class="mobile-toggle" id="mobileToggle"> 
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    
+  <header>
+    <div class="logo">
+      <i class="ph-fill ph-bus" aria-hidden="true"></i>
+      <h1>SuperTours Charter Bus</h1>
+    </div>
+
     <nav class="desktop_n">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="media.html">Media</a>
-        <a href="review.html">Reviews</a>
-        <a href="contact.html">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="media.html">Media</a>
+      <a href="review.html">Reviews</a>
+      <a href="contact.html">Contact</a>
     </nav>
-     
-    <nav class="mobile_n" id="mobileNav">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="media.html">Media</a>
-        <a href="review.html">Reviews</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-        </header>
+
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle mobile menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- Mobile nav drawer stays OUTSIDE header -->
+  <nav class="mobile_n" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="media.html">Media</a>
+    <a href="review.html">Reviews</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
   <main>
-    <h1 class="animated-text-reviews">Our Reviews</h1>
+    <div class="page-title">
+      <h1><i class="ph-fill ph-star" aria-hidden="true"></i> Our Reviews</h1>
+    </div>
     <div class="masonry-grid">
     <div class="masonry-card">
         <h3>Albert-South Carolina</h3> <!--large card-->

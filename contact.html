@@ -8,6 +8,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Phosphor icons -->
     <script src="https://unpkg.com/@phosphor-icons/web@2.1.2"></script>
+    <!-- Shared site CSS — gives this page the same nav/header/footer as the rest -->
+    <link rel="stylesheet" href="css/style.css">
     <script>
       /* I added tailwind custom colors from index.html/css file */
       tailwind.config = {
@@ -26,110 +28,55 @@
       }
     </script>
     <style>
-       /*FOOTER*/
-
-footer {
-  padding: 28px 30px;
-  display: flex;
-  justify-content: space-between;
-  border-top: 1px solid BLACK;
-  font-size: 14px;
-  color: black;
-  background-color: white;
-  width:100vw;
-  margin-top: 60px;
- overflow: hidden;
-
-}
- .links { display: flex; gap: 20px;
- }
-
-/* MOBILE NAV — matches the pattern used on the other pages */
-.mobile-toggle {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 30px;
-  height: 25px;
-  align-items: center;
-  background: transparent;
-  border: none;
-  padding: 1px;
-  z-index: 10001; /* above the open menu so the user can tap to close */
-  cursor: pointer;
-}
-.mobile-toggle span {
-  display: block;
-  height: 2px;
-  width: 35px;
-  background-color: #ebc2a6;
-  border: 3px solid rgb(218, 158, 218);
-}
-.mobile_n {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 250px;
-  height: 100vh;
-  background-color: white;
-  flex-direction: column;
-  display: none;
-  z-index: 10000;
-  padding-top: 60px;
-  border-radius: 20px;
-}
-.mobile_n a {
-  padding: 10px 20px;
-  text-align: center;
-  display: block;
-  border-radius: 20px;
-  color: black;
-  border: 2px solid black;
-  margin: 14px 14px 0;
-  font-size: 1.5rem;
-  background-color: rgb(245, 216, 238);
-  text-decoration: none;
-}
-.mobile_n.open { display: flex; }
-
-@media (min-width: 768px) {
-  .mobile-toggle, .mobile_n { display: none !important; }
-}
+      /* Resets so style.css's global rules don't fight Tailwind on this page */
+      body { background-color: #FFF3E7 !important; }      /* keep the cream bg */
+      main {                                              /* let Tailwind sections handle their own width/padding */
+        max-width: none;
+        margin: 0;
+        padding: 0;
+      }
+      main > section + section,                           /* turn off the global section rhythm */
+      main > div + div,
+      main > section + div,
+      main > div + section { margin-top: 0; }
+      h3 {                                                /* clear the global h3 box so Tailwind card titles render plain */
+        background: transparent;
+        box-shadow: none;
+        padding: 0;
+        border-radius: 0;
+        margin: 0;
+        font-family: inherit;
+      }
     </style>
 </head>
 
 <!-- bg-cream sets the whole page background to (ivory cream) -->
 <!-- text-black makes all default text black -->
 <body class="bg-cream text-black">
-<!--px-6 adds 24px padding on left and right px(x-axis)-->
-<!-- py-4 adds 16px padding on top and bottom (y-axis)-->
- <!--The rest say the header will be flex and justify btw will push item to the ends with item center-->
-<header class="bg-cream px-6 py-4 flex justify-between items-center">
-    <!--text-2xl= 24px font on mobile-->
-        <!--md &lg is 36 tablet 60px desktop & w-full means take the full width-->
-    <h1 class="text-2xl md:text-4xl lg:text-6xl font-bold text-center w-full">Contact Us</h1>
-</header>
+<!-- Same header used on every other page -->
+<header>
+  <div class="logo">
+    <i class="ph-fill ph-bus" aria-hidden="true"></i>
+    <h1>SuperTours Charter Bus</h1>
+  </div>
 
-<!-- Desktop Nav — hidden on mobile, shown at md and up -->
-<nav class="bg-cream hidden md:flex justify-end gap-6 px-6 py-3 border-b border-gray-200">
-    <a href="index.html" class="hover:text-sienna transition duration-300">Home</a>
-    <a href="about.html" class="hover:text-sienna transition duration-300">About</a>
-    <a href="gallery.html" class="hover:text-sienna transition duration-300">Gallery</a>
-    <a href="media.html" class="hover:text-sienna transition duration-300">Media</a>
-    <a href="review.html" class="hover:text-sienna transition duration-300">Review</a>
-    <a href="contact.html" class="hover:text-sienna  transition duration-300">Contact</a>
-</nav>
+  <nav class="desktop_n">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="media.html">Media</a>
+    <a href="review.html">Reviews</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
-<!-- Mobile hamburger — only visible below md -->
-<div class="bg-cream md:hidden flex justify-end px-6 py-3 border-b border-gray-200">
   <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle mobile menu">
     <span></span>
     <span></span>
     <span></span>
   </button>
-</div>
+</header>
 
-<!-- Mobile nav drawer (sits outside the header so position:fixed is unaffected) -->
+<!-- Mobile nav drawer stays OUTSIDE header -->
 <nav class="mobile_n" id="mobileNav">
   <a href="index.html">Home</a>
   <a href="about.html">About</a>
@@ -140,6 +87,14 @@ footer {
 </nav>
 
 <main>
+
+<!-- Page banner — same .page-title style used on the other pages -->
+<section class="px-4 max-w-5xl mx-auto pt-8">
+  <div class="page-title">
+    <h1><i class="ph-fill ph-envelope-simple" aria-hidden="true"></i> Contact Us</h1>
+    <p class="page-title-sub">We'd love to hear from you — reach out anytime.</p>
+  </div>
+</section>
 
 <!-- HERO SECTION -->
 <!-- bg-bluegray sets the blue gray background, text-white keeps text readable -->

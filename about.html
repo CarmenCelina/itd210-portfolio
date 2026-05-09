@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SuperTours About Page</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.2"></script>
     <script src="js/about.js" defer></script>
     <script src="js/script.js" defer></script>
 
@@ -12,6 +13,7 @@
 <body>
    <header>
   <div class="logo">
+    <i class="ph-fill ph-bus" aria-hidden="true"></i>
     <h1>SuperTours Charter Bus</h1>
   </div>
 
@@ -41,7 +43,9 @@
   <a href="contact.html">Contact</a>
 </nav>
     <main>
-     <h1 class="h1_about">About Us</h1> <br><br>
+     <div class="page-title">
+       <h1><i class="ph-fill ph-info" aria-hidden="true"></i> About Us</h1>
+     </div>
      <section>
    <div class="why-hire-card">
 
@@ -104,27 +108,43 @@
 
 
 
-<!--This section is for a cards! I made this section to emphasize value of the company!
-I also main a card wider than the rest because I wanted to explain why they should hire us. 
-I thought it be good to add more information on what the company offer. -->
-<section class="big_card"> <!--This is big container-->
-  <div class="small_card"> <!-- These are 3 cards-->
-    <img src="images/card1.jpg" alt="a man driving a steering wheel">
-    <h3>Reliable</h3>
-    <p>We guarantee a safe ride!</p>
-  </div>
+<!-- Value cards — same layout as the index page so the site feels consistent -->
+<section class="card-grid">
+  <article class="card">
+    <div class="thumb">
+      <img src="images/card1.jpg" alt="a man driving a steering wheel">
+      <span class="ribbon new">Trusted</span>
+    </div>
+    <div class="body">
+      <h3><i class="ph-fill ph-shield-check" aria-hidden="true"></i> Reliable</h3>
+      <p>We guarantee a safe ride, every trip.</p>
+      <button onclick="location.href='review.html'">See Reviews</button>
+    </div>
+  </article>
 
-  <div class="small_card">
-    <img src="images/ducks.jpg" alt="ducks swimming in a single row">
-    <h3>Responsible</h3>
-    <p> We take 100% responsibility!</p>
-  </div>
+  <article class="card">
+    <div class="thumb">
+      <img src="images/ducks.jpg" alt="ducks swimming in a single row">
+      <span class="ribbon sale">100%</span>
+    </div>
+    <div class="body">
+      <h3><i class="ph-fill ph-hand-heart" aria-hidden="true"></i> Responsible</h3>
+      <p>We take 100% responsibility for every passenger.</p>
+      <button onclick="location.href='media.html'">Watch Videos</button>
+    </div>
+  </article>
 
-  <div class="small_card">
-    <img src="images/time.jpg" alt="picture of a black clock showing time">
-    <h3>Punctual</h3>
-    <p>We are always on time!</p>
-  </div>
+  <article class="card">
+    <div class="thumb">
+      <img src="images/time.jpg" alt="picture of a black clock showing time">
+      <span class="ribbon hot">On Time</span>
+    </div>
+    <div class="body">
+      <h3><i class="ph-fill ph-clock" aria-hidden="true"></i> Punctual</h3>
+      <p>We are always on time — count on it.</p>
+      <button onclick="location.href='contact.html'">Book Now</button>
+    </div>
+  </article>
 </section>
 
 <!--THE CALL TO ACTION-->
@@ -139,8 +159,8 @@ This allows user to have contact information and emphasize that are company is r
   <br>
   </p>
     <p>
-  📞 Call: <a href="703-111-1111">703-111-1111</a> <br>
-  ✉️ Email:<a href=" mailto:SuperTours@gmail.com">SuperTours@gmail.com</a>
+  <i class="ph-fill ph-phone-call" aria-hidden="true"></i> Call: <a href="tel:703-111-1111">703-111-1111</a> <br>
+  <i class="ph-fill ph-envelope" aria-hidden="true"></i> Email: <a href="mailto:SuperTours@gmail.com">SuperTours@gmail.com</a>
 </p>
 
   <!-- CHERRY BLOSSOM BOX - a highlighted box to promote the festival.
@@ -148,7 +168,7 @@ This allows user to have contact information and emphasize that are company is r
        This is my meaningful LINK to promote my business -->
 
   <div class="cherry_blossom">
-    <p>🌸 Book us for the Annual Cherry Blossom Festival in DC!</p>
+    <p><i class="ph-fill ph-flower-tulip" aria-hidden="true"></i> Book us for the Annual Cherry Blossom Festival in DC!</p>
     <a href="https://nationalcherryblossomfestival.org/">Visit the National Cherry Blossom Festival</a>
   </div>
   
